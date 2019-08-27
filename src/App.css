@@ -1,13 +1,47 @@
 .App {
   text-align: center;
+  margin: 0px;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+.nav-item{
+  font-size: 16pt;
+  width: 7em;
+  text-align: center;
+  align-content: center;
+  background-color: rgb(5, 100, 194);
 }
 
+.house-background{
+  background-image: url('./houses.jpg') !important;
+  background-size: cover !important;
+  margin: 0px;
+  padding: 0px;
+  min-height: 100vh;
+  max-height: 100vh;
+}
+
+.login-card-inner{
+  padding-top: 3%;
+  margin: 3%;
+}
+
+.signin-card{
+  width: 30%;
+  margin-left: 15%;
+  padding-top: 3%
+}
+
+.login-card{
+  width: 30%;
+  margin-left: 15%;
+  padding-top: 3%
+}
+
+.welcome-title {
+  padding-top: 10%;
+  font-size: 50px;
+  color: gold;
+}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
