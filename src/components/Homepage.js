@@ -1,18 +1,79 @@
-import React, { Component, Fragment } from 'react';
-import { Route, withRouter } from 'react-router-dom';
+import React, { Component } from 'react';
+import Map from './Map'
+const POSTS_URL = "http://localhost:3000/api/v1/posts"
+// import { Route, withRouter } from 'react-router-dom';
+
 
 class Homepage extends Component {
 
-  render() {
-    console.log("homepage props", this.props)
-    return (
-      <div>
-        <h1> This is the homepage </h1>
-        <h2> hi, {this.props.username} </h2>
-      </div>
-    )
+  state = {
+    category: '',
+    allPosts: []
   }
 
+  handleChange = (event) => {
+    // console.log("target", event.target)
+    this.setState({ category: event.target.value})
+  }
+
+  handleSubmit = (event) => {
+    // console.log("You selected this category:", this.state.category)
+    event.preventDefault()
+  }
+
+  componentDidMount() {
+      fetch(`${POSTS_URL}`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          Accepts: 'application/json'
+        }
+      })
+        .then(resp => resp.json())
+        .then(postsArray => {
+          // console.log(postsArray)
+          this.setState({ allPosts: postsArray })
+    })
+  }
+
+
+  render() {
+    // console.log("homepage props", this.props)
+    return (
+      <>
+        <div className="city-background">
+          <h1> Homepage </h1>
+          <h2> Welcome back, {this.props.username}! </h2>
+          <h3> {"Search anywhere in the world and click the map to leave a note. It's the neighborly thing to do."} </h3>
+          <br></br>
+        <form onSubmit={this.handleSubmit}>
+          <label>
+            {"Filter this map area by category: "}
+            <select value={this.state.category} onChange={this.handleChange}>
+              <option value="animal_sightings"> Animal Sightings </option>
+              <option value="candid_camera"> Candid Camera </option>
+              <option value="free_stuff"> Free Stuff </option>
+              <option value="general_notes"> General Notes </option>
+              <option value="for_sale"> Items For Sale </option>
+              <option value="live_music"> Live Music </option>
+              <option value="lost_found_items"> Lost or Found Items </option>
+              <option value="lost_found_pet"> Lost or Found Pets </option>
+              <option value="missed_connections"> Missed Connections </option>
+              <option value="need_help"> Need Help </option>
+              <option value="neighborhood_events"> Neighborhood Events </option>
+              <option value="other"> Other </option>
+              <option value="protest_events"> Protest Events </option>
+              <option value="safety_concerns"> Safety Concerns </option>
+              <option value="thank_you_notes"> Thank You Notes </option>
+            </select>
+          </label>
+          <input className="button" type="submit" value="Submit" />
+        </form>
+        <Map allPosts={this.state.allPosts}/>
+      </div>
+    </>
+    )
+  }
 }
 
-export default withRouter(Homepage)
+export default Homepage

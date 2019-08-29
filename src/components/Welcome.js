@@ -1,7 +1,5 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom'
-import { Form } from 'semantic-ui-react';
-import Header from './Header'
 import SignUpForm from './SignUpForm'
 import LoginForm from './LoginForm'
 

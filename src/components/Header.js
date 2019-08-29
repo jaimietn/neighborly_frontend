@@ -1,14 +1,15 @@
 import React from 'react';
-import Navbar from './Navbar'
+import MainNavbar from './MainNavbar'
 
-const Header=()=>{
-    return(
-    <div>
-        <h1 class="welcome-title"> Neighborly </h1>
-        <Navbar />
-        <br/>
-    </div>
-    )
+class Header extends React.Component {
+
+    render() {
+        return (
+            <div>
+                <MainNavbar />
+                <br/>
+            </div>
+        )
+    }
 }
-
 export default Header

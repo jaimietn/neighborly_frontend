@@ -19,23 +19,20 @@ class SignUpForm extends Component {
 
   render(){
     return(
-        <div className="signin-card">
-            <div className="login-card-inner">
-                <br />
-                <h1>Sign Up</h1>
-                <br />
-                <Form onSubmit={() => this.props.createUser(this.state)} >
-                    <Form.Field>
-                        <Form.Input placeholder="Enter your username" onChange={this.handleChangeUsername} value={this.state.username} />
-                    </Form.Field>
-                    <br />
-                    <Form.Field>
-                        <Form.Input type="password" placeholder="Enter your password" onChange={this.handleChangePassword} value={this.state.password} />
-                    </Form.Field>
-                    <br />
-                    <Form.Button>Submit</Form.Button>
-                </Form>
-            </div>
+        <div className="signup-card">
+          <h1 className="form-title">Sign Up</h1>
+          <br />
+          <Form onSubmit={() => this.props.createUser(this.state)} >
+              <Form.Field>
+                  <Form.Input placeholder="Enter your username" onChange={this.handleChangeUsername} value={this.state.username} />
+              </Form.Field>
+              <br />
+              <Form.Field>
+                  <Form.Input type="password" placeholder="Enter your password" onChange={this.handleChangePassword} value={this.state.password} />
+              </Form.Field>
+              <br />
+              <Form.Button>Submit</Form.Button>
+          </Form>
         </div>
     )
   }
