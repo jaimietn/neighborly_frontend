@@ -110,7 +110,9 @@ class App extends Component {
           <Route
             exact path="/"
             render={() => (
-              <Welcome login={this.login} createUser={this.createUser} />
+              <Welcome
+                login={this.login}
+                createUser={this.createUser} />
             )}
           />
           <Route
@@ -118,7 +120,9 @@ class App extends Component {
             render={() => (
               <>
                 <Header />
-                <Homepage userId={this.state.user.id} username={this.state.user.username}/>
+                <Homepage
+                  userId={this.state.user.id}
+                  username={this.state.user.username}/>
               </>
             )}
           />
@@ -127,7 +131,9 @@ class App extends Component {
             render={() => (
               <>
                 <Header />
-                <Profile userId={this.state.user.id} username={this.state.user.username}/>
+                <Profile
+                  userId={this.state.user.id}
+                  username={this.state.user.username}/>
               </>
             )}
             />

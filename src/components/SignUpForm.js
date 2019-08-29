@@ -4,17 +4,13 @@ import { Form } from 'semantic-ui-react';
 class SignUpForm extends Component {
 
   state = {
-      username: "",
-      password: ""
+      username: '',
+      password: ''
   }
 
-  handleChangeUsername = event => {
-    this.setState({ username: event.target.value })
-  }
-
-  handleChangePassword = event => {
+  handleChange = event => {
     // console.log(this.state)
-    this.setState({ password: event.target.value })
+    this.setState({ [event.target.name]: event.target.value })
   }
 
   render(){
@@ -24,11 +20,20 @@ class SignUpForm extends Component {
           <br />
           <Form onSubmit={() => this.props.createUser(this.state)} >
               <Form.Field>
-                  <Form.Input placeholder="Enter your username" onChange={this.handleChangeUsername} value={this.state.username} />
+                  <Form.Input
+                    name="username"
+                    placeholder="Enter your username"
+                    onChange={this.handleChange}
+                    value={this.state.username} />
               </Form.Field>
               <br />
               <Form.Field>
-                  <Form.Input type="password" placeholder="Enter your password" onChange={this.handleChangePassword} value={this.state.password} />
+                  <Form.Input
+                    name="password"
+                    type="password" 
+                    placeholder="Enter your password"
+                    onChange={this.handleChange}
+                    value={this.state.password} />
               </Form.Field>
               <br />
               <Form.Button>Submit</Form.Button>

@@ -1,14 +1,14 @@
-import React, { Component } from 'react';
-import { Form } from 'semantic-ui-react';
+import React, { Component } from 'react'
+import { Form } from 'semantic-ui-react'
 
 class LoginForm extends Component {
 
   state = {
-      username: "",
-      password: ""
+      username: '',
+      password: ''
   }
 
-  handleChange = event => {
+  handleChange = (event) => {
     // console.log(this.state)
     this.setState({ [event.target.name]: event.target.value })
   }
@@ -20,11 +20,20 @@ class LoginForm extends Component {
         <br />
         <Form onSubmit={() => this.props.login(this.state)} >
             <Form.Field>
-                <Form.Input name="username" placeholder="Enter your username" onChange={this.handleChange} value={this.state.username} />
+                <Form.Input
+                  name="username"
+                  placeholder="Enter your username"
+                  onChange={this.handleChange}
+                  value={this.state.username} />
             </Form.Field>
             <br />
             <Form.Field>
-                <Form.Input name="password" type="password" placeholder="Enter your password" onChange={this.handleChange} value={this.state.password} />
+                <Form.Input
+                  name="password"
+                  type="password"
+                  placeholder="Enter your password"
+                  onChange={this.handleChange}
+                  value={this.state.password} />
             </Form.Field>
             <br />
             <Form.Button>Submit</Form.Button>

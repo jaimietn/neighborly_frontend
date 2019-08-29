@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
-import ReactMapGL, { Marker, Popup } from 'react-map-gl';
-import 'mapbox-gl/dist/mapbox-gl.css';
-
+import React, { useState } from 'react'
+import ReactMapGL, { Marker, Popup } from 'react-map-gl'
+import 'mapbox-gl/dist/mapbox-gl.css'
 const REACT_APP_NEIGHBORLY_TOKEN="pk.eyJ1IjoiamFpbWlldG4iLCJhIjoiY2p6dmliN2NqMDB0dzNubXJ5M3NsdTZieCJ9.KOQr6GZBT81gTk57JEZCuA"
 
 export default function Map(props) {
@@ -10,17 +9,14 @@ export default function Map(props) {
         latitude: 40.7052569,
         longitude: -74.0162643,
         width: "100vw",
-        height: 400,
+        height: "100vh",
         zoom: 11
     })
-
     const[selectedPost, setSelectedPost] = useState(null)
-
     const allPosts = props.allPosts
     // console.log(allPosts)
 
 //props: <Map allPosts={this.state.allPosts}/>
-
     return(
         <div>
             <ReactMapGL
@@ -29,8 +25,7 @@ export default function Map(props) {
                 mapStyle="mapbox://styles/mapbox/streets-v11"
                 onViewportChange={viewport => {
                     setViewport(viewport)
-                }}
-            >
+                }}>
                 {allPosts.map(post => (
                     <Marker
                         key={post.id}
@@ -56,6 +51,7 @@ export default function Map(props) {
                         <div className="popup-card">
                             <h2>{selectedPost.title}</h2>
                             <p>Category: {selectedPost.category}</p>
+                            <p>Posted by: username </p>
                             <p>Posted: {selectedPost.posted}</p>
                             <p>Expires: {selectedPost.expires}</p>
                             <br></br>
