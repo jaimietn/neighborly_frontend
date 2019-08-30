@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import { Form, Dropdown } from 'semantic-ui-react'
+import { connect } from 'react-redux'
+
 const POSTS_URL = "http://localhost:3000/api/v1/posts"
 
 class PostForm extends Component {
 
   state = {
-    user_id: '',
     latitude: '',
     longitude: '',
     posted: '',
@@ -16,35 +17,59 @@ class PostForm extends Component {
     image: ''
   }
 
-  handleChange = event => {
-    // console.log(this.state)
+
+  nextweek() {
+    var today = new Date();
+    var nextweek = new Date(today.getFullYear(), today.getMonth(), today.getDate()+7);
+    return nextweek.toDateString();
+  }
+
+  handleChange = (event) => {
+    console.log(this.state)
     this.setState({ [event.target.name]: event.target.value })
   }
 
   handleSubmit = (event) => {
-  event.preventDefault();
-  console.log("bert id", this.props.userId)
-  console.log("bert name", this.props.username)
-  // const data = new FormData(event.target);
-  //
-  // console.log(user)
-  // fetch(`${USERS_URL}`,
-  //   {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //       "Accept": "application/json"
-  //     }, body: JSON.stringify({
-  //       user: {
-  //         username: user.username,
-  //         password: user.password
-  //       }
-  //     })
-  //   })
-  //   .then(resp => resp.json())
-  //   .then(newUser => {
-  //     console.log(newUser)
-  //   })
+    event.preventDefault();
+    console.log("bert id", this.props.userId)
+    console.log("bert name", this.props.username)
+
+    let userId = this.props.userId
+    let username = this.props.username
+    let latitude = Number(this.props.longLat[1])
+    let longitude = Number(this.props.longLat[0])
+    let posted = new Date().toDateString()
+    let expires = this.nextweek()
+    let category = this.state.category
+    let title = this.state.title
+    let content = this.state.content
+    let image = this.state.image
+
+    // console.log(user)
+    fetch(`${POSTS_URL}`,{
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        }, body: JSON.stringify({
+          post: {
+            user_id: userId,
+            username: username,
+            latitude: latitude,
+            longitude: longitude,
+            posted: posted,
+            expires: expires,
+            category: category,
+            title: title,
+            content: content,
+            image: image
+          }
+        })
+      })
+      .then(resp => resp.json())
+      .then(newPost => {
+        console.log(newPost)
+      })
   }
 
   render(){
@@ -53,37 +78,34 @@ class PostForm extends Component {
           <h2 className="form-title">Leave a Note</h2>
           <br />
           <Form onSubmit={this.handleSubmit} >
-              <Form.Field>
-                  <Form.Input
-                  placeholder="Enter latitude"
-                  onChange={this.handleChange}
-                  value={this.state.latitude} />
-              </Form.Field>
-              <Form.Field>
-                  <Form.Input
-                  placeholder="Enter longitude"
-                  onChange={this.handleChange}
-                  value={this.state.longitude} />
-              </Form.Field>
+              <h3>
+                  Latitude: {this.props.longLat[1]}
+              </h3>
+              <h3>
+                  Longitude: {this.props.longLat[0]}
+              </h3>
               <Form.Field>
                   <Form.Input
                   placeholder="Enter title"
+                  name="title"
                   onChange={this.handleChange}
                   value={this.state.title} />
               </Form.Field>
               <Form.Field>
                   <Form.Input
                   placeholder="Write your note"
+                  name="content"
                   onChange={this.handleChange}
                   value={this.state.content} />
               </Form.Field>
               <Form.Field>
                   <Form.Input
                   placeholder="Share an image link"
+                  name="image"
                   onChange={this.handleChange}
                   value={this.state.image} />
               </Form.Field>
-              <select value={this.state.category} onChange={this.handleChange}>
+              <select name="category" value={this.state.category} onChange={this.handleChange}>
                 <option value="animal_sightings"> Animal Sightings </option>
                 <option value="candid_camera"> Candid Camera </option>
                 <option value="free_stuff"> Free Stuff </option>
@@ -106,6 +128,12 @@ class PostForm extends Component {
         </div>
     )
   }
-
 }
-export default PostForm
+
+function msp(state){
+  return {
+    longLat: state.longLat
+  }
+}
+
+export default connect(msp, null)(PostForm)

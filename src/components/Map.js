@@ -1,19 +1,21 @@
 import React, { useState } from 'react'
 import ReactMapGL, { Marker, Popup } from 'react-map-gl'
 import 'mapbox-gl/dist/mapbox-gl.css'
+import { connect } from 'react-redux'
 const REACT_APP_NEIGHBORLY_TOKEN="pk.eyJ1IjoiamFpbWlldG4iLCJhIjoiY2p6dmliN2NqMDB0dzNubXJ5M3NsdTZieCJ9.KOQr6GZBT81gTk57JEZCuA"
 
-export default function Map(props) {
+function Map(props) {
 
     const [viewport, setViewport] = useState({
-        latitude: 40.7052569,
-        longitude: -74.0162643,
+        latitude: 40.693078,
+        longitude: -73.991109,
         width: "100vw",
         height: "100vh",
-        zoom: 11
+        zoom: 13
     })
     const[selectedPost, setSelectedPost] = useState(null)
     const allPosts = props.allPosts
+    // let username = props.username
     // console.log(allPosts)
 
 //props: <Map allPosts={this.state.allPosts}/>
@@ -22,10 +24,11 @@ export default function Map(props) {
             <ReactMapGL
                 {...viewport}
                 mapboxApiAccessToken={REACT_APP_NEIGHBORLY_TOKEN}
-                mapStyle="mapbox://styles/mapbox/streets-v11"
+                mapStyle="mapbox://styles/mapbox/navigation-guidance-day-v4"
                 onViewportChange={viewport => {
                     setViewport(viewport)
-                }}>
+                }}
+                onClick={e => {props.addLongLat(e.lngLat)}}>
                 {allPosts.map(post => (
                     <Marker
                         key={post.id}
@@ -37,7 +40,7 @@ export default function Map(props) {
                                 e.preventDefault()
                                 setSelectedPost(post)
                             }}>
-                                <img src="/hug.png" alt="🤗"/>
+                                <i>✏️</i>
                             </button>
                     </Marker>
                 ))}
@@ -51,13 +54,17 @@ export default function Map(props) {
                         <div className="popup-card">
                             <h2>{selectedPost.title}</h2>
                             <p>Category: {selectedPost.category}</p>
-                            <p>Posted by: username </p>
+                            <p>Posted by: {selectedPost.username} </p>
                             <p>Posted: {selectedPost.posted}</p>
                             <p>Expires: {selectedPost.expires}</p>
                             <br></br>
                             <p>{selectedPost.content}</p>
                             <br></br>
-                            <img className="popup-card-img" src={selectedPost.image} alt="📷"/>
+                            {selectedPost.image ? (
+                                <img
+                                    className="popup-card-img"
+                                    src={selectedPost.image} alt="📷"/>
+                            ) : null}
                         </div>
                     </Popup>
                 ) : null}
@@ -65,3 +72,9 @@ export default function Map(props) {
         </div>
     )
 }
+
+function mdp(dispatch){
+    return {addLongLat: (longLat) => dispatch({type: "GET_LONG_LAT", payload: longLat})}
+}
+
+export default connect(null, mdp)(Map)

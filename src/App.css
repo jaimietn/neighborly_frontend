@@ -9,7 +9,7 @@
 }
 
 .city-background{
-  background-image: url('./skyline-drawing.png') !important;
+  background-image: url('images/skyline-drawing.png') !important;
   padding: 0px;
   min-height: 25vh;
   position: absolute;
@@ -100,7 +100,7 @@
 
 /* --- Not in Use --- */
 .house-background{
-  background-image: url('./houses.jpg') !important;
+  background-image: url('images/houses.jpg') !important;
   background-size: cover !important;
   margin: 0px;
   /* margin-top: 5em; */

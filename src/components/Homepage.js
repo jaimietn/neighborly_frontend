@@ -78,7 +78,10 @@ class Homepage extends Component {
             username={this.props.username}/>
         </div>
         <div className="map-container">
-          <Map allPosts={this.state.allPosts}/>
+          <Map
+            allPosts={this.state.allPosts}
+            userId={this.props.userId}
+            username={this.props.username}/>
         </div>
       </>
     )
