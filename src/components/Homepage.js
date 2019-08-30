@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import PostForm from './PostForm'
-
+import { addAllPosts } from '../actions.js'
 import Map from './Map'
-// import CategoryForm from './CategoryForm'
 const POSTS_URL = "http://localhost:3000/api/v1/posts"
-
 
 class Homepage extends Component {
 
@@ -25,33 +24,23 @@ class Homepage extends Component {
   }
 
   componentDidMount() {
-      fetch(`${POSTS_URL}`, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          Accepts: 'application/json'
-        }
-      })
-        .then(resp => resp.json())
-        .then(postsArray => {
-          // console.log(postsArray)
-          this.setState({ allPosts: postsArray })
-    })
+      this.props.addAllPosts()
   }
 
   render() {
+    // console.log("current user posts", this.state.allPosts.filter(post => post.user_id === this.props.userId))
     console.log("homepage props", this.props)
     return (
       <>
         <div>
-          <h1 className="form-title"> Welcome back, {this.props.username}! </h1>
-          <h4> {"Search anywhere in the world and click the map to leave a note. It's the neighborly thing to do."} </h4>
+          <h1 className="form-title"> Hey there, {this.props.username}! 👋 </h1>
         </div>
         <div>
           <form onSubmit={this.handleSubmit}>
             <label>
               {"Filter this map area by category: "}
               <select value={this.state.category} onChange={this.handleChange}>
+                <option value='' disabled> Select a category </option>
                 <option value="animal_sightings"> Animal Sightings </option>
                 <option value="candid_camera"> Candid Camera </option>
                 <option value="free_stuff"> Free Stuff </option>
@@ -79,7 +68,7 @@ class Homepage extends Component {
         </div>
         <div className="map-container">
           <Map
-            allPosts={this.state.allPosts}
+            allPosts={this.props.addAllPosts}
             userId={this.props.userId}
             username={this.props.username}/>
         </div>
@@ -88,4 +77,19 @@ class Homepage extends Component {
   }
 }
 
-export default Homepage
+function mdp(dispatch){
+  return{
+    addAllPosts: () => {
+      addAllPosts(dispatch)()
+    }
+  }
+}
+
+function msp(state){
+  return {
+    getAllPosts: state.getAllPosts
+  }
+}
+
+
+export default connect(msp, mdp)(Homepage)

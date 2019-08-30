@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Form, Dropdown } from 'semantic-ui-react'
+import { Form } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 
 const POSTS_URL = "http://localhost:3000/api/v1/posts"
@@ -77,13 +77,14 @@ class PostForm extends Component {
         <div>
           <h2 className="form-title">Leave a Note</h2>
           <br />
+          <h4> {"Start by clicking on the location"} </h4>
           <Form onSubmit={this.handleSubmit} >
-              <h3>
+              <p>
                   Latitude: {this.props.longLat[1]}
-              </h3>
-              <h3>
+              </p>
+              <p>
                   Longitude: {this.props.longLat[0]}
-              </h3>
+              </p>
               <Form.Field>
                   <Form.Input
                   placeholder="Enter title"
@@ -106,6 +107,7 @@ class PostForm extends Component {
                   value={this.state.image} />
               </Form.Field>
               <select name="category" value={this.state.category} onChange={this.handleChange}>
+                <option value='' disabled> Select a category </option>
                 <option value="animal_sightings"> Animal Sightings </option>
                 <option value="candid_camera"> Candid Camera </option>
                 <option value="free_stuff"> Free Stuff </option>

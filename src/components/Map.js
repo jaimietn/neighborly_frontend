@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import ReactMapGL, { Marker, Popup } from 'react-map-gl'
-import 'mapbox-gl/dist/mapbox-gl.css'
 import { connect } from 'react-redux'
+import 'mapbox-gl/dist/mapbox-gl.css'
 const REACT_APP_NEIGHBORLY_TOKEN="pk.eyJ1IjoiamFpbWlldG4iLCJhIjoiY2p6dmliN2NqMDB0dzNubXJ5M3NsdTZieCJ9.KOQr6GZBT81gTk57JEZCuA"
 
 function Map(props) {
@@ -14,11 +14,8 @@ function Map(props) {
         zoom: 13
     })
     const[selectedPost, setSelectedPost] = useState(null)
-    const allPosts = props.allPosts
-    // let username = props.username
-    // console.log(allPosts)
 
-//props: <Map allPosts={this.state.allPosts}/>
+    console.log(props.getAllPosts)
     return(
         <div>
             <ReactMapGL
@@ -29,7 +26,7 @@ function Map(props) {
                     setViewport(viewport)
                 }}
                 onClick={e => {props.addLongLat(e.lngLat)}}>
-                {allPosts.map(post => (
+                {props.getAllPosts.map(post => (
                     <Marker
                         key={post.id}
                         latitude={Number(post.latitude)}
@@ -74,7 +71,15 @@ function Map(props) {
 }
 
 function mdp(dispatch){
-    return {addLongLat: (longLat) => dispatch({type: "GET_LONG_LAT", payload: longLat})}
+    return {
+        addLongLat: (longLat) => dispatch({type: "GET_LONG_LAT", payload: longLat})
+    }
 }
 
-export default connect(null, mdp)(Map)
+function msp(state){
+  return {
+    getAllPosts: state.getAllPosts
+  }
+}
+
+export default connect(msp, mdp)(Map)
