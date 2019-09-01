@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
-import ReactMapGL, { Marker, Popup } from 'react-map-gl'
 import { connect } from 'react-redux'
+import ReactMapGL, { Marker, Popup } from 'react-map-gl'
 import 'mapbox-gl/dist/mapbox-gl.css'
+
 const REACT_APP_NEIGHBORLY_TOKEN="pk.eyJ1IjoiamFpbWlldG4iLCJhIjoiY2p6dmliN2NqMDB0dzNubXJ5M3NsdTZieCJ9.KOQr6GZBT81gTk57JEZCuA"
 
 function Map(props) {
@@ -15,7 +16,7 @@ function Map(props) {
     })
     const[selectedPost, setSelectedPost] = useState(null)
 
-    console.log(props.getAllPosts)
+    console.log("map props getallposts", props.getAllPosts)
     return(
         <div>
             <ReactMapGL
@@ -37,7 +38,7 @@ function Map(props) {
                                 e.preventDefault()
                                 setSelectedPost(post)
                             }}>
-                                <i>✏️</i>
+                                <span role="img" aria-label="pencil"> ✏️ </span>
                             </button>
                     </Marker>
                 ))}
@@ -70,13 +71,13 @@ function Map(props) {
     )
 }
 
-function mdp(dispatch){
-    return {
-        addLongLat: (longLat) => dispatch({type: "GET_LONG_LAT", payload: longLat})
-    }
+function mdp(dispatch) {
+  return {
+    addLongLat: (longLat) => dispatch({type: "GET_LONG_LAT", payload: longLat})
+  }
 }
 
-function msp(state){
+function msp(state) {
   return {
     getAllPosts: state.getAllPosts
   }

@@ -1,10 +1,16 @@
 import React, { Component } from 'react'
-// import { Route, withRouter } from 'react-router-dom';
+import { connect } from 'react-redux'
+import { getAllPosts } from '../actions.js'
 
 class Profile extends Component {
 
+  componentDidMount() {
+    this.props.getAllPosts()
+  }
+
   render() {
-    console.log("homepage props", this.props)
+    console.log("profile props.getAllPosts", this.props.getAllPosts)
+    console.log("profile props", this.props)
     return (
       <div>
         <div>
@@ -18,7 +24,19 @@ class Profile extends Component {
       </div>
     )
   }
-
 }
 
-export default Profile
+function mdp(dispatch) {
+  return {
+    getAllPosts: () => {
+      getAllPosts(dispatch)()
+    }
+  }
+}
+
+function msp(state){
+  return {
+    getAllPosts: state.getAllPosts
+  }
+}
+export default connect(msp, mdp)(Profile)

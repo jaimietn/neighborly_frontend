@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PostForm from './PostForm'
-import { addAllPosts } from '../actions.js'
+import { getAllPosts } from '../actions.js'
 import Map from './Map'
-const POSTS_URL = "http://localhost:3000/api/v1/posts"
+// const POSTS_URL = "http://localhost:3000/api/v1/posts"
 
 class Homepage extends Component {
 
@@ -19,12 +19,12 @@ class Homepage extends Component {
 
   handleSubmit = (event) => {
     console.log("You selected this category:", this.state.category)
-    console.log("current user", this.props.username)
+    console.log("homepage props", this.props)
     event.preventDefault()
   }
 
   componentDidMount() {
-      this.props.addAllPosts()
+    this.props.getAllPosts()
   }
 
   render() {
@@ -68,7 +68,7 @@ class Homepage extends Component {
         </div>
         <div className="map-container">
           <Map
-            allPosts={this.props.addAllPosts}
+            allPosts={this.props.getAllPosts}
             userId={this.props.userId}
             username={this.props.username}/>
         </div>
@@ -77,19 +77,18 @@ class Homepage extends Component {
   }
 }
 
-function mdp(dispatch){
-  return{
-    addAllPosts: () => {
-      addAllPosts(dispatch)()
+function mdp(dispatch) {
+  return {
+    getAllPosts: () => {
+      getAllPosts(dispatch)()
     }
   }
 }
 
-function msp(state){
+function msp(state) {
   return {
     getAllPosts: state.getAllPosts
   }
 }
-
 
 export default connect(msp, mdp)(Homepage)
