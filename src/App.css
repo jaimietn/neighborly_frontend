@@ -12,7 +12,7 @@
   background-image: url('images/skyline-drawing.png') !important;
   padding: 0px;
   min-height: 25vh;
-  position: absolute;
+  /* position: absolute; */
   bottom: 10px;
   width: 100%;
 }
@@ -87,10 +87,13 @@
 .popup-card-img {
   width: 150px;
   border-radius: 5px;
+  max-height: 250px;
 }
 
 /* --- Profile --- */
-
+.ui.cards {
+  place-content: center;
+}
 
 /* --- About Us --- */
 .about-text {

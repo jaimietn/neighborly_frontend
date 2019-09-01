@@ -20,24 +20,33 @@ class Profile extends Component {
     if (userPosts.length === 0) {
       response = "You have don't have any posts."
     } else {
+
     response = userPosts.map(post => (
-        <div>
-          <p>key={post.id}</p>
-          <p>title={post.title}</p>
-          <p>content={post.content}</p>
-        </div>
+        <Card key={post.id}>
+          <h2> {post.title} </h2>
+          <p> Category: {post.category} </p>
+          <p> Posted by: {post.username} </p>
+          <p> Posted: {post.posted} </p>
+          <p> Expires: {post.expires} </p>
+          <br></br>
+          <p>{post.content}</p>
+          <br></br>
+          <img src={post.image} className="popup-card-img"/>
+        </Card>
     ))
 }
     return (
       <div>
         <div>
-          <h1> This is the user profile page </h1>
-          <h2> Hey, {this.props.username}! Here are all of your current posts. </h2>
+          <h1></h1>
+          <h2 className="form-title"> Hey, {this.props.username}! Here are all of your current posts. </h2>
+          <br></br>
         </div>
         <div>
           <Card.Group itemsPerRow={4}>
             {response}
           </Card.Group>
+          <br></br>
         </div>
         <div className="city-background"></div>
       </div>
