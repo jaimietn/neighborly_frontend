@@ -8,8 +8,8 @@ import Map from './Map'
 class Homepage extends Component {
 
   state = {
-    category: '',
-    allPosts: []
+    category: ''
+    // allPosts: []
   }
 
   handleChange = (event) => {
@@ -18,8 +18,8 @@ class Homepage extends Component {
   }
 
   handleSubmit = (event) => {
-    console.log("You selected this category:", this.state.category)
-    console.log("homepage props", this.props)
+    // console.log("You selected this category:", this.state.category)
+    // console.log("homepage props", this.props)
     event.preventDefault()
   }
 
@@ -28,8 +28,9 @@ class Homepage extends Component {
   }
 
   render() {
+    console.log(this.props.allPosts)
     // console.log("current user posts", this.state.allPosts.filter(post => post.user_id === this.props.userId))
-    console.log("homepage props", this.props)
+    // console.log("homepage props", this.props)
     return (
       <>
         <div>
@@ -68,7 +69,7 @@ class Homepage extends Component {
         </div>
         <div className="map-container">
           <Map
-            allPosts={this.props.getAllPosts}
+
             userId={this.props.userId}
             username={this.props.username}/>
         </div>
@@ -80,14 +81,14 @@ class Homepage extends Component {
 function mdp(dispatch) {
   return {
     getAllPosts: () => {
-      getAllPosts(dispatch)()
+      dispatch(getAllPosts())
     }
   }
 }
 
 function msp(state) {
   return {
-    getAllPosts: state.getAllPosts
+    allPosts: state.allPosts
   }
 }
 

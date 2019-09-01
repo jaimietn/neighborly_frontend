@@ -2,7 +2,7 @@ import { combineReducers } from 'redux'
 
 const defaultState = {
   longLat: [],
-  getAllPosts: []
+  allPosts: []
 }
 
 function longLatReducer(state=defaultState.longLat, action) {
@@ -15,7 +15,7 @@ function longLatReducer(state=defaultState.longLat, action) {
   }
 }
 
-function getAllPostsReducer(state=defaultState.getAllPosts, action) {
+function getAllPostsReducer(state=defaultState.allPosts, action) {
   switch (action.type) {
     case "GET_ALL_POSTS":
       console.log(action.payload)
@@ -27,7 +27,7 @@ function getAllPostsReducer(state=defaultState.getAllPosts, action) {
 
 const rootReducer = combineReducers({
   longLat: longLatReducer,
-  getAllPosts: getAllPostsReducer
+  allPosts: getAllPostsReducer
 })
 
 export default rootReducer

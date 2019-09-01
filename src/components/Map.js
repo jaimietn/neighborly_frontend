@@ -16,7 +16,7 @@ function Map(props) {
     })
     const[selectedPost, setSelectedPost] = useState(null)
 
-    console.log("map props getallposts", props.getAllPosts)
+    // console.log("map props getallposts", props.getAllPosts)
     return(
         <div>
             <ReactMapGL
@@ -27,7 +27,7 @@ function Map(props) {
                     setViewport(viewport)
                 }}
                 onClick={e => {props.addLongLat(e.lngLat)}}>
-                {props.getAllPosts.map(post => (
+                {props.allPosts.map(post => (
                     <Marker
                         key={post.id}
                         latitude={Number(post.latitude)}
@@ -79,7 +79,7 @@ function mdp(dispatch) {
 
 function msp(state) {
   return {
-    getAllPosts: state.getAllPosts
+    allPosts: state.allPosts
   }
 }
 
