@@ -28,8 +28,6 @@ class Profile extends Component {
     this.props.deletePost(postId)
   }
 
-
-
   render() {
     console.log(this.props)
     // console.log("all posts", this.props.allPosts)
@@ -43,19 +41,22 @@ class Profile extends Component {
 
     response = userPosts.map(post => (
         <Card key={post.id}>
-          <h2> {post.title} </h2>
-          <p> Category: {post.category} </p>
-          <p> Posted by: {post.username} </p>
-          <p> Posted: {post.posted} </p>
-          <p> Expires: {post.expires} </p>
-          <p> Neighborhood: {post.neighborhood} </p>
-          <br></br>
+          <h2><strong>{post.title}</strong></h2>
+          <p><strong>Category: </strong>{post.category}</p>
+          <p><strong>Posted by: </strong>{post.username}</p>
+          <p><strong>Posted: </strong>{post.posted}</p>
+          <p><strong>Expires: </strong>{post.expires}</p>
+          {post.neighborhood !== null ? (
+            <p><strong>Neighborhood: 
+            </strong>{post.neighborhood}</p>
+        ) : null }
           <p>{post.content}</p>
-          <br></br>
-          <img
-            src={post.image}
-            alt="Unavailable :( "
-            className="popup-card-img"/>
+          {post.image ? (
+            <img
+              src={post.image}
+              alt="Unavailable :( "
+              className="popup-card-img"/>
+          ) : null }
           <Form.Button
             onClick={() => this.editPost(post.id)}>
             Edit Post

@@ -83,7 +83,7 @@ class PostForm extends Component {
         <div>
           <h2 className="form-title">Leave a Note</h2>
           <br />
-          <h4> {"Start by clicking on the location"} </h4>
+          <h4> {"Start by clicking on a location"} </h4>
           <Form onSubmit={this.handleSubmit} >
               <p>
                   Latitude: {this.props.longLat[1]}

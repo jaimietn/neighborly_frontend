@@ -22,6 +22,8 @@ class Homepage extends Component {
     // console.log("homepage props", this.props)
     //need filter function
     event.preventDefault()
+    const selectedCategory = this.state.category
+    this.props.filterPosts(selectedCategory)
   }
 
   componentDidMount() {
@@ -85,8 +87,10 @@ class Homepage extends Component {
 function mdp(dispatch) {
   return {
     getAllPosts: () => {
-      dispatch(getAllPosts())
-    }
+      dispatch(getAllPosts())},
+    filterPosts: (selectedCategory) => dispatch({
+      type: "FILTER_POSTS",
+      payload: selectedCategory})
   }
 }
 

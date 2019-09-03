@@ -51,20 +51,21 @@ function Map(props) {
                         setSelectedPost(null)
                     }}>
                         <div className="popup-card">
-                            <h2>{selectedPost.title}</h2>
-                            <p>Category: {selectedPost.category}</p>
-                            <p>Neighborhood: {selectedPost.neighborhood}</p>
-                            <p>Posted by: {selectedPost.username} </p>
-                            <p>Posted: {selectedPost.posted}</p>
-                            <p>Expires: {selectedPost.expires}</p>
-                            <br></br>
+                            <h2><strong>{selectedPost.title}</strong></h2>
+                            <p><strong>Category: </strong> {selectedPost.category}</p>
+                            <p><strong>Posted by: </strong> {selectedPost.username} </p>
+                            <p><strong>Posted: </strong> {selectedPost.posted}</p>
+                            <p><strong>Expires: </strong> {selectedPost.expires}</p>
+                            {selectedPost.neighborhood !== null ? (
+                              <p><strong>Neighborhood:
+                              </strong>{selectedPost.neighborhood}</p>
+                            ) : null }
                             <p>{selectedPost.content}</p>
-                            <br></br>
                             {selectedPost.image ? (
                                 <img
                                     className="popup-card-img"
                                     src={selectedPost.image} alt="📷"/>
-                            ) : null}
+                            ) : null }
                         </div>
                     </Popup>
                 ) : null}

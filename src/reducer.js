@@ -31,6 +31,11 @@ function postsReducer(state=defaultState.allPosts, action) {
       const postId = action.payload
       return state.filter(post => post.id !== postId)
 
+    case "FILTER_POSTS":
+      console.log(action.payload)
+      const selectedCategory = action.payload
+      return state.filter(post => post.category === selectedCategory)
+
     default:
       return state
   }
