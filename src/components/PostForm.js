@@ -13,10 +13,10 @@ class PostForm extends Component {
     expires: '',
     category: '',
     title: '',
+    neighborhood: '',
     content: '',
     image: ''
   }
-
 
   nextweek() {
     var today = new Date()
@@ -25,14 +25,14 @@ class PostForm extends Component {
   }
 
   handleChange = (event) => {
-    console.log(this.state)
+    // console.log(this.state)
     this.setState({ [event.target.name]: event.target.value })
   }
 
   handleSubmit = (event) => {
     event.preventDefault();
-    console.log("bert id", this.props.userId)
-    console.log("bert name", this.props.username)
+    // console.log("bert id", this.props.userId)
+    // console.log("bert name", this.props.username)
 
     let userId = this.props.userId
     let username = this.props.username
@@ -42,8 +42,25 @@ class PostForm extends Component {
     let expires = this.nextweek()
     let category = this.state.category
     let title = this.state.title
+    let neighborhood = this.state.neighborhood
     let content = this.state.content
     let image = this.state.image
+
+    const newPost = {
+      user_id: userId,
+      username: username,
+      latitude: latitude,
+      longitude: longitude,
+      posted: posted,
+      expires: expires,
+      category: category,
+      title: title,
+      content: content,
+      image: image,
+      neighborhood: neighborhood
+    }
+
+    this.props.addNewPost(newPost)
 
     // console.log(user)
     fetch(`${POSTS_URL}`,{
@@ -52,18 +69,7 @@ class PostForm extends Component {
           "Content-Type": "application/json",
           "Accept": "application/json"
         }, body: JSON.stringify({
-          post: {
-            user_id: userId,
-            username: username,
-            latitude: latitude,
-            longitude: longitude,
-            posted: posted,
-            expires: expires,
-            category: category,
-            title: title,
-            content: content,
-            image: image
-          }
+          post: newPost
         })
       })
       .then(resp => resp.json())
@@ -91,6 +97,13 @@ class PostForm extends Component {
                   name="title"
                   onChange={this.handleChange}
                   value={this.state.title} />
+              </Form.Field>
+              <Form.Field>
+                  <Form.Input
+                  placeholder="Enter city or neighborhood"
+                  name="neighborhood"
+                  onChange={this.handleChange}
+                  value={this.state.neighborhood} />
               </Form.Field>
               <Form.Field>
                   <Form.Input
@@ -136,10 +149,18 @@ class PostForm extends Component {
   }
 }
 
+function mdp(dispatch) {
+  return {
+    addNewPost: (newPost) => dispatch({
+    type: "ADD_NEW_POST",
+    payload: newPost})
+  }
+}
+
 function msp(state){
   return {
     longLat: state.longLat
   }
 }
 
-export default connect(msp, null)(PostForm)
+export default connect(msp, mdp)(PostForm)

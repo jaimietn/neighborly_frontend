@@ -39,7 +39,7 @@ function Map(props) {
                                 e.preventDefault()
                                 setSelectedPost(post)
                             }}>
-                                <span role="img" aria-label="pencil"> 📫 </span>
+                                <span role="img" aria-label="pencil"> 📍 </span>
                             </button>
                     </Marker>
                 ))}
@@ -53,6 +53,7 @@ function Map(props) {
                         <div className="popup-card">
                             <h2>{selectedPost.title}</h2>
                             <p>Category: {selectedPost.category}</p>
+                            <p>Neighborhood: {selectedPost.neighborhood}</p>
                             <p>Posted by: {selectedPost.username} </p>
                             <p>Posted: {selectedPost.posted}</p>
                             <p>Expires: {selectedPost.expires}</p>

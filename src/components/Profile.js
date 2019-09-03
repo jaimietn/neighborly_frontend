@@ -12,22 +12,26 @@ class Profile extends Component {
     }
   }
 
-  editPost = (post) => {
-    console.log("edit post:", post)
+  editPost = (postId) => {
+    console.log("edit post:", postId)
   }
 
-  deletePost = (post) => {
-    fetch(`${POSTS_URL}/${post}`,  {
+  deleteSinglePost = (postId) => {
+    fetch(`${POSTS_URL}/${postId}`,  {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json'
       }
     })
-    // console.log("delete post:", post)
+    console.log("delete post:", postId)
+    this.props.deletePost(postId)
   }
 
+
+
   render() {
+    console.log(this.props)
     // console.log("all posts", this.props.allPosts)
     const userPosts = this.props.allPosts.filter(post => post.user_id === this.props.userId)
     // console.log("bert's posts", userPosts)
@@ -44,6 +48,7 @@ class Profile extends Component {
           <p> Posted by: {post.username} </p>
           <p> Posted: {post.posted} </p>
           <p> Expires: {post.expires} </p>
+          <p> Neighborhood: {post.neighborhood} </p>
           <br></br>
           <p>{post.content}</p>
           <br></br>
@@ -56,7 +61,7 @@ class Profile extends Component {
             Edit Post
           </Form.Button>
           <Form.Button
-            onClick={(e) => this.deletePost(post.id)}>
+            onClick={(e) => this.deleteSinglePost(post.id)}>
             Delete
           </Form.Button>
         </Card>
@@ -83,9 +88,10 @@ class Profile extends Component {
 
 function mdp(dispatch) {
   return {
-    getAllPosts: () => {
-      dispatch(getAllPosts())
-    }
+    getAllPosts: () => {dispatch(getAllPosts())},
+    deletePost: (postId) => dispatch({
+      type: "DELETE_POST",
+      payload: postId})
   }
 }
 
@@ -95,4 +101,5 @@ function msp(state){
     allPosts: state.allPosts
   }
 }
+
 export default connect(msp, mdp)(Profile)

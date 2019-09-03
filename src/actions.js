@@ -1,5 +1,3 @@
-// const POSTS_URL = "http://localhost:3000/api/v1/posts"
-
 function getAllPosts(){
   return function(dispatch){
     fetch('http://localhost:3000/api/v1/posts', {

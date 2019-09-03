@@ -15,11 +15,22 @@ function longLatReducer(state=defaultState.longLat, action) {
   }
 }
 
-function getAllPostsReducer(state=defaultState.allPosts, action) {
+function postsReducer(state=defaultState.allPosts, action) {
   switch (action.type) {
     case "GET_ALL_POSTS":
       console.log(action.payload)
       return action.payload
+
+    case "ADD_NEW_POST":
+      console.log(action.payload)
+      console.log("reducer state", state)
+      return [...state, action.payload]
+
+    case "DELETE_POST":
+      console.log(action.payload)
+      const postId = action.payload
+      return state.filter(post => post.id !== postId)
+
     default:
       return state
   }
@@ -27,7 +38,7 @@ function getAllPostsReducer(state=defaultState.allPosts, action) {
 
 const rootReducer = combineReducers({
   longLat: longLatReducer,
-  allPosts: getAllPostsReducer
+  allPosts: postsReducer,
 })
 
 export default rootReducer
