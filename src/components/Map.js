@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
+// import { Form } from 'semantic-ui-react'
 import ReactMapGL, { Marker, Popup } from 'react-map-gl'
 import 'mapbox-gl/dist/mapbox-gl.css'
 
@@ -8,11 +9,11 @@ const REACT_APP_NEIGHBORLY_TOKEN="pk.eyJ1IjoiamFpbWlldG4iLCJhIjoiY2p6dmliN2NqMDB
 function Map(props) {
 
     const [viewport, setViewport] = useState({
-        latitude: 40.693078,
-        longitude: -73.991109,
+        latitude: 40.737099,
+        longitude: -73.942656,
         width: "100vw",
-        height: "100vh",
-        zoom: 13
+        height: "610px",
+        zoom: 11
     })
     const[selectedPost, setSelectedPost] = useState(null)
 
@@ -38,7 +39,7 @@ function Map(props) {
                                 e.preventDefault()
                                 setSelectedPost(post)
                             }}>
-                                <span role="img" aria-label="pencil"> ✏️ </span>
+                                <span role="img" aria-label="pencil"> 📫 </span>
                             </button>
                     </Marker>
                 ))}

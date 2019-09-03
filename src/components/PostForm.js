@@ -108,21 +108,25 @@ class PostForm extends Component {
               </Form.Field>
               <select name="category" value={this.state.category} onChange={this.handleChange}>
                 <option value='' disabled> Select a category </option>
-                <option value="animal_sightings"> Animal Sightings </option>
-                <option value="candid_camera"> Candid Camera </option>
-                <option value="free_stuff"> Free Stuff </option>
-                <option value="general_notes"> General Notes </option>
-                <option value="for_sale"> Items For Sale </option>
-                <option value="live_music"> Live Music </option>
-                <option value="lost_found_items"> Lost or Found Items </option>
-                <option value="lost_found_pet"> Lost or Found Pets </option>
-                <option value="missed_connections"> Missed Connections </option>
-                <option value="need_help"> Need Help </option>
-                <option value="neighborhood_events"> Neighborhood Events </option>
-                <option value="other"> Other </option>
-                <option value="protest_events"> Protest Events </option>
-                <option value="safety_concerns"> Safety Concerns </option>
-                <option value="thank_you_notes"> Thank You Notes </option>
+                <option value="Animal Sightings"> Animal Sightings </option>
+                <option value="For Sale"> Items For Sale </option>
+                <option value="Free Stuff"> Free Stuff </option>
+                <option value="Funny"> Funny </option>
+                <option value="General Notes"> General Notes </option>
+                <option value="General Questions"> General Questions </option>
+                <option value="Gigs"> Gigs </option>
+                <option value="Live Music"> Live Music </option>
+                <option value="Lost or Found Items"> Lost or Found Items </option>
+                <option value="Lost or Found Pets"> Lost or Found Pets </option>
+                <option value="Missed Connections"> Missed Connections </option>
+                <option value="Need Help"> Need Help </option>
+                <option value="Neighborhood Events"> Neighborhood Events </option>
+                <option value="Other"> Other </option>
+                <option value="Protest Events"> Protest Events </option>
+                <option value="Random"> Random </option>
+                <option value="Safety Concerns"> Safety Concerns </option>
+                <option value="Spotted"> Spotted </option>
+                <option value="Thank You Notes"> Thank You Notes </option>
               </select>
               <br></br>
             <Form.Button> Submit </Form.Button>

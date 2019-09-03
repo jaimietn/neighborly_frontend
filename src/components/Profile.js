@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { getAllPosts } from '../actions.js'
-import { Card } from 'semantic-ui-react';
+import { Card, Form } from 'semantic-ui-react';
+const POSTS_URL = "http://localhost:3000/api/v1/posts"
 
 class Profile extends Component {
 
@@ -11,10 +12,25 @@ class Profile extends Component {
     }
   }
 
+  editPost = (post) => {
+    console.log("edit post:", post)
+  }
+
+  deletePost = (post) => {
+    fetch(`${POSTS_URL}/${post}`,  {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }
+    })
+    // console.log("delete post:", post)
+  }
+
   render() {
-    console.log("all posts", this.props.allPosts)
+    // console.log("all posts", this.props.allPosts)
     const userPosts = this.props.allPosts.filter(post => post.user_id === this.props.userId)
-    console.log("bert's posts", userPosts)
+    // console.log("bert's posts", userPosts)
 
     let response
     if (userPosts.length === 0) {
@@ -31,14 +47,25 @@ class Profile extends Component {
           <br></br>
           <p>{post.content}</p>
           <br></br>
-          <img src={post.image} className="popup-card-img"/>
+          <img
+            src={post.image}
+            alt="Unavailable :( "
+            className="popup-card-img"/>
+          <Form.Button
+            onClick={() => this.editPost(post.id)}>
+            Edit Post
+          </Form.Button>
+          <Form.Button
+            onClick={(e) => this.deletePost(post.id)}>
+            Delete
+          </Form.Button>
         </Card>
     ))
 }
     return (
       <div>
         <div>
-          <h1></h1>
+          <br></br>
           <h2 className="form-title"> Hey, {this.props.username}! Here are all of your current posts. </h2>
           <br></br>
         </div>

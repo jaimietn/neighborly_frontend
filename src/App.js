@@ -104,6 +104,16 @@ class App extends Component {
       }
     }
 
+    // deletePost = (post) => {
+    //   fetch(`${POSTS_URL}/${post.id}`,  {
+    //     method: 'DELETE',
+    //     headers: {
+    //       'Content-Type': 'application/json',
+    //       'Accept': 'application/json'
+    //     }
+    //   })
+    // }
+
     render() {
       return (
         <div className="App" >
@@ -133,7 +143,8 @@ class App extends Component {
                 <Header />
                 <Profile
                   userId={this.state.user.id}
-                  username={this.state.user.username}/>
+                  username={this.state.user.username}
+                />
               </>
             )}
             />
