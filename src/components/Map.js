@@ -10,6 +10,7 @@ function Map(props) {
     // let filteredPosts = []
     let allPostsCopy = props.allPosts
     console.log("map props", props.selectedCategory.category)
+    // console.log("map props", props.selectedCategory)
 
     function filterPosts() {
       if (!props.selectedCategory.category) {

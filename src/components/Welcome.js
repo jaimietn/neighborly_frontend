@@ -23,7 +23,7 @@ class Welcome extends Component {
           </div>
           <div>
           </div>
-          <div className="city-background"></div>
+          <div className="city-background-login"></div>
         </div>
       )
     }
