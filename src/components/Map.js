@@ -14,6 +14,8 @@ function Map(props) {
     function filterPosts() {
       if (!props.selectedCategory.category) {
         return allPostsCopy
+      } else if (props.selectedCategory.category === "Show All"){
+        return allPostsCopy
       } else {
         return allPostsCopy.filter(post => post.category === props.selectedCategory.category)
       }
@@ -68,16 +70,16 @@ function Map(props) {
                                   <span role="img" aria-label="Free Sign"> 🆓 </span> )
 
                               } else if (post.category === "Funny"){
-                                    return (
-                                      <span role="img" aria-label="Laughing Face"> 😂 </span> )
+                                return (
+                                  <span role="img" aria-label="Laughing Face"> 😂 </span> )
 
                               } else if (post.category === "General"){
-                                    return (
-                                      <span role="img" aria-label="Speech Balloon"> 💬 </span> )
+                                return (
+                                  <span role="img" aria-label="Speech Balloon"> 💬 </span> )
 
                               } else if (post.category === "Gigs"){
-                                    return (
-                                      <span role="img" aria-label="Money Bag"> 💰 </span> )
+                                return (
+                                  <span role="img" aria-label="Money Bag"> 💰 </span> )
 
                               } else if (post.category === "Lost or Found Items"){
                                 return (
@@ -88,35 +90,36 @@ function Map(props) {
                                   <span role="img" aria-label="Crying Cat"> 😿 </span> )
 
                               } else if (post.category === "Missed Connections"){
-                                  return (
-                                    <span role="img" aria-label="Exclamation Heart"> ❣️ </span> )
+                                return (
+                                  <span role="img" aria-label="Exclamation Heart"> ❣️ </span> )
 
                               } else if (post.category === "Need Help"){
-                                  return (
-                                     <span role="img" aria-label="SOS Sign"> 🆘 </span> )
+                                return (
+                                  <span role="img" aria-label="SOS Sign"> 🆘 </span> )
 
                               } else if (post.category === "Neighborhood Events"){
-                                  return (
-                                    <span role="img" aria-label="Balloon"> 🎈 </span> )
+                                return (
+                                  <span role="img" aria-label="Balloon"> 🎈 </span> )
 
                               } else if (post.category === "Other"){
-                                  return (
-                                    <span role="img" aria-label="Red Pushpin"> 📍 </span> )
+                                return (
+                                  <span role="img" aria-label="Red Pushpin"> 📍 </span> )
 
                               } else if (post.category === "Protest Events"){
-                                  return (
-                                    <span role="img" aria-label="Raised Fist"> ✊ </span> )
+                                return (
+                                  <span role="img" aria-label="Raised Fist"> ✊ </span> )
+
                               } else if (post.category === "Spotted"){
-                                  return (
-                                    <span role="img" aria-label="Looking Eyes"> 👀 </span> )
+                                return (
+                                  <span role="img" aria-label="Looking Eyes"> 👀 </span> )
 
                               } else if (post.category === "Thank You Notes"){
-                                  return (
-                                    <span role="img" aria-label="Love Letter"> 💌 </span> )
+                                return (
+                                  <span role="img" aria-label="Love Letter"> 💌 </span> )
 
                               } else {
-                                  return (
-                                    <span role="img" aria-label="red pin"> 📍 </span> )}
+                                return (
+                                  <span role="img" aria-label="red pin"> 📍 </span> )}
                             })()}
                                 {/*<span role="img" aria-label="pencil"> 📍 </span>*/}
                             </button>
@@ -131,13 +134,13 @@ function Map(props) {
                     }}>
                         <div className="popup-card">
                             <h2><strong>{selectedPost.title}</strong></h2>
-                            <p><strong>Category: </strong> {selectedPost.category}</p>
-                            <p><strong>Posted by: </strong> {selectedPost.username} </p>
+                            <p><strong>User: </strong> {selectedPost.username} </p>
                             <p><strong>Posted: </strong> {selectedPost.posted}</p>
-                            <p><strong>Expires: </strong> {selectedPost.expires}</p>
+                            {/*<p><strong>Expires: </strong> {selectedPost.expires}</p>*/}
+                            <p><strong>Category: </strong> {selectedPost.category}</p>
                             {selectedPost.neighborhood !== null ? (
                               <p><strong>Neighborhood:
-                              </strong>{selectedPost.neighborhood}</p>
+                              </strong> {selectedPost.neighborhood}</p>
                             ) : null }
                             <p>{selectedPost.content}</p>
                             {selectedPost.image ? (

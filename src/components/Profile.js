@@ -42,13 +42,12 @@ class Profile extends Component {
     response = userPosts.map(post => (
         <Card key={post.id}>
           <h2><strong>{post.title}</strong></h2>
-          <p><strong>Category: </strong>{post.category}</p>
-          <p><strong>Posted by: </strong>{post.username}</p>
+          <p><strong>User: </strong>{post.username}</p>
           <p><strong>Posted: </strong>{post.posted}</p>
-          <p><strong>Expires: </strong>{post.expires}</p>
+          {/*<p><strong>Expires: </strong>{post.expires}</p>*/}
+          <p><strong>Category: </strong>{post.category}</p>
           {post.neighborhood !== null ? (
-            <p><strong>Neighborhood:
-            </strong>{post.neighborhood}</p>
+            <p><strong>Neighborhood: </strong> {post.neighborhood}</p>
         ) : null }
           <p>{post.content}</p>
           {post.image ? (
