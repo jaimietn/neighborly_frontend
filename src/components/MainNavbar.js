@@ -11,7 +11,7 @@ class MainNavbar extends React.Component {
 
   render() {
     return (
-      <Navbar bg="light" expand="lg">
+      <Navbar expand="lg" className="navBar-styling">
         <Navbar.Brand href="/neighborly" className="navLogo">Neighborly</Navbar.Brand>
         <Nav className="mr-auto">
           <Nav.Link href="/aboutus">About Us</Nav.Link>

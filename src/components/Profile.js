@@ -40,30 +40,28 @@ class Profile extends Component {
     } else {
 
     response = userPosts.map(post => (
-        <Card key={post.id}>
-          <h2><strong>{post.title}</strong></h2>
-          <p><strong>User: </strong>{post.username}</p>
-          <p><strong>Posted: </strong>{post.posted}</p>
-          {/*<p><strong>Expires: </strong>{post.expires}</p>*/}
-          <p><strong>Category: </strong>{post.category}</p>
-          {post.neighborhood !== null ? (
-            <p><strong>Neighborhood: </strong> {post.neighborhood}</p>
-        ) : null }
-          <p>{post.content}</p>
+        <Card key={post.id} className="post-card">
           {post.image ? (
             <img
               src={post.image}
               alt="Unavailable :( "
               className="popup-card-img"/>
           ) : null }
+          <h2 className="post-title"><strong>{post.title}</strong></h2>
+          {/*<p><strong>Expires: </strong>{post.expires}</p>*/}
+          <p><strong>{post.category}</strong>
+          {(post.neighborhood !== null) ? (<strong>{" - " + post.neighborhood} </strong> ) : null } </p>
+          <p>{post.content}</p>
+
           {/*<Form.Button
             onClick={() => this.editPost(post.id)}>
             Edit Post
           </Form.Button>*/}
-          <Form.Button
+          <button className="delete-btn"
             onClick={(e) => this.deleteSinglePost(post.id)}>
-            Delete
-          </Form.Button>
+            &times;
+          </button>
+          <p className="date-posted">Posted by <strong> {post.username}</strong> on {post.posted}</p>
         </Card>
     ))
 }

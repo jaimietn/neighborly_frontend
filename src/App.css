@@ -9,11 +9,13 @@
 }
 
 .city-background{
-  background-image: url('images/skyline-drawing.png') !important;
+  background-image: url('images/skyline-drawing.png')  !important;
   padding: 0px;
   min-height: 25vh;
   bottom: 10px;
-  width: 100%;
+  width: 100vw;
+  /* margin-left: -10em; */
+  background-repeat: no-repeat;
 }
 
 .city-background-login{
@@ -51,6 +53,11 @@
 }
 
 /* --- NavBar --- */
+
+.navBar-styling{
+  background-color: gold;
+  box-shadow: 0 1px 2px 0 rgba(36, 50, 66, .15);
+}
 .navLogo {
   font-size: 50px;
   color: #F9C80E;
@@ -93,18 +100,60 @@
 }
 
 .popup-card-img {
-  width: 150px;
+  width: 95%;
   border-radius: 5px;
-  max-height: 250px;
+  height: 250px;
   place-self: center;
+  /* position: absolute; */
+  /* padding-top: 1em; */
 }
 
 /* --- Profile --- */
 .ui.cards {
   place-content: center;
+  padding: 0 !important;
+  vertical-align: top;
 }
-.profile-post-card{
+/* .profile-post-card{
   padding: 3em;
+} */
+
+.post-card {
+  padding: 1em !important;
+  border: none !important;
+  box-shadow: 0 0 4px 0 rgba(36, 50, 66, .15) !important;
+  vertical-align: top;
+}
+
+.delete-btn {
+  /* max-width: 5em; */
+  font-size: 2em;
+  /* background-color: red;*/
+  color: #999;
+  /* border: 1px solid red; */
+  border-radius:1em;
+  /* margin-top: 1.5em; */
+  border: none;
+  margin-left: 15%;
+  padding: .2em;
+  position: absolute;
+  background: transparent;
+  top: -.4em;
+  right: 0;
+}
+
+.date-posted {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 1em auto !important;
+  margin-left: -1em;
+  margin-top: -1em;
+  border-top: 1px solid #F3F3F3;
+}
+
+.post-title {
+  padding-top: .5em;
 }
 
 /* --- About Us --- */
