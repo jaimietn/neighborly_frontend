@@ -135,8 +135,7 @@ function Map(props) {
                     }}>
                         <div className="popup-card">
                             <h2><strong>{selectedPost.title}</strong></h2>
-                            <p><strong>User: </strong> {selectedPost.username} </p>
-                            <p><strong>Posted: </strong> {selectedPost.posted}</p>
+                            <p><strong>{selectedPost.username}</strong>  posted on <strong>{selectedPost.posted}</strong></p>
                             {/*<p><strong>Expires: </strong> {selectedPost.expires}</p>*/}
                             <p><strong>Category: </strong> {selectedPost.category}</p>
                             {selectedPost.neighborhood !== null ? (
