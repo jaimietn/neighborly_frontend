@@ -12,9 +12,9 @@ class Profile extends Component {
     }
   }
 
-  editPost = (postId) => {
-    console.log("edit post:", postId)
-  }
+  // editPost = (postId) => {
+  //   console.log("edit post:", postId)
+  // }
 
   deleteSinglePost = (postId) => {
     fetch(`${POSTS_URL}/${postId}`,  {
@@ -57,10 +57,10 @@ class Profile extends Component {
               alt="Unavailable :( "
               className="popup-card-img"/>
           ) : null }
-          <Form.Button
+          {/*<Form.Button
             onClick={() => this.editPost(post.id)}>
             Edit Post
-          </Form.Button>
+          </Form.Button>*/}
           <Form.Button
             onClick={(e) => this.deleteSinglePost(post.id)}>
             Delete

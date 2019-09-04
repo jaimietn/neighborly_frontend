@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import PostForm from './PostForm'
 import { getAllPosts } from '../actions.js'
 import Map from './Map'
-// const POSTS_URL = "http://localhost:3000/api/v1/posts"
 
 class Homepage extends Component {
 
@@ -12,8 +11,6 @@ class Homepage extends Component {
   }
 
   handleChange = (e) => {
-    // console.log("target", event.target)
-    // this.setState({ category: event.target.value})
     console.log(e.target.value)
     this.props.recordSelectedCategory(e)
   }
@@ -41,19 +38,19 @@ class Homepage extends Component {
           <h1 className="form-title"> Hey there, {this.props.username}! 👋 </h1>
         </div>
         <div>
-          <form onSubmit={this.handleSubmit}>
+          <form>
+            {/* removed from form: onSubmit={this.handleSubmit}*/}
             <label>
               {"Filter this map area by category: "}
               <select value={this.state.category} onChange={((e) => this.handleChange(e))}>
                 <option value='' disabled> Select a category </option>
+                <option value="Show All"> Show All </option>
                 <option value="Animal Sightings"> Animal Sightings </option>
-                <option value="For Sale"> Items For Sale </option>
+                <option value="For Sale"> For Sale </option>
                 <option value="Free Stuff"> Free Stuff </option>
                 <option value="Funny"> Funny </option>
-                <option value="General Notes"> General Notes </option>
-                <option value="General Questions"> General Questions </option>
+                <option value="General"> General </option>
                 <option value="Gigs"> Gigs </option>
-                <option value="Live Music"> Live Music </option>
                 <option value="Lost or Found Items"> Lost or Found Items </option>
                 <option value="Lost or Found Pets"> Lost or Found Pets </option>
                 <option value="Missed Connections"> Missed Connections </option>
@@ -61,13 +58,11 @@ class Homepage extends Component {
                 <option value="Neighborhood Events"> Neighborhood Events </option>
                 <option value="Other"> Other </option>
                 <option value="Protest Events"> Protest Events </option>
-                <option value="Random"> Random </option>
-                <option value="Safety Concerns"> Safety Concerns </option>
                 <option value="Spotted"> Spotted </option>
                 <option value="Thank You Notes"> Thank You Notes </option>
               </select>
             </label>
-            <input className="button" type="submit" value="Submit" />
+      {  /* <input className="button" type="submit" value="Submit" />*/}
           </form>
         </div>
         <div className="post-form-container">

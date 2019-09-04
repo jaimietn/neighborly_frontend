@@ -38,7 +38,7 @@ function Map(props) {
             <ReactMapGL
                 {...viewport}
                 mapboxApiAccessToken={REACT_APP_NEIGHBORLY_TOKEN}
-                mapStyle="mapbox://styles/mapbox/navigation-guidance-day-v4"
+                mapStyle="mapbox://styles/mapbox/light-v10"
                 onViewportChange={viewport => {
                     setViewport(viewport)
                 }}
@@ -54,7 +54,71 @@ function Map(props) {
                                 e.preventDefault()
                                 setSelectedPost(post)
                             }}>
-                                <span role="img" aria-label="pencil"> 📍 </span>
+                            {(() => {
+                              if (post.category === "Animal Sightings") {
+                                return (
+                                  <span role="img" aria-label="Love Cat"> 😻 </span>
+                                )
+                              } else if (post.category === "For Sale"){
+                                return (
+                                  <span role="img" aria-label="Dollar Sign"> 💲 </span> )
+
+                              } else if (post.category === "Free Stuff"){
+                                return (
+                                  <span role="img" aria-label="Free Sign"> 🆓 </span> )
+
+                              } else if (post.category === "Funny"){
+                                    return (
+                                      <span role="img" aria-label="Laughing Face"> 😂 </span> )
+
+                              } else if (post.category === "General"){
+                                    return (
+                                      <span role="img" aria-label="Speech Balloon"> 💬 </span> )
+
+                              } else if (post.category === "Gigs"){
+                                    return (
+                                      <span role="img" aria-label="Money Bag"> 💰 </span> )
+
+                              } else if (post.category === "Lost or Found Items"){
+                                return (
+                                  <span role="img" aria-label="Waving Hand"> 👋 </span> )
+
+                              } else if (post.category === "Lost or Found Pets"){
+                                return (
+                                  <span role="img" aria-label="Crying Cat"> 😿 </span> )
+
+                              } else if (post.category === "Missed Connections"){
+                                  return (
+                                    <span role="img" aria-label="Exclamation Heart"> ❣️ </span> )
+
+                              } else if (post.category === "Need Help"){
+                                  return (
+                                     <span role="img" aria-label="SOS Sign"> 🆘 </span> )
+
+                              } else if (post.category === "Neighborhood Events"){
+                                  return (
+                                    <span role="img" aria-label="Balloon"> 🎈 </span> )
+
+                              } else if (post.category === "Other"){
+                                  return (
+                                    <span role="img" aria-label="Red Pushpin"> 📍 </span> )
+
+                              } else if (post.category === "Protest Events"){
+                                  return (
+                                    <span role="img" aria-label="Raised Fist"> ✊ </span> )
+                              } else if (post.category === "Spotted"){
+                                  return (
+                                    <span role="img" aria-label="Looking Eyes"> 👀 </span> )
+
+                              } else if (post.category === "Thank You Notes"){
+                                  return (
+                                    <span role="img" aria-label="Love Letter"> 💌 </span> )
+
+                              } else {
+                                  return (
+                                    <span role="img" aria-label="red pin"> 📍 </span> )}
+                            })()}
+                                {/*<span role="img" aria-label="pencil"> 📍 </span>*/}
                             </button>
                     </Marker>
                 ))}
