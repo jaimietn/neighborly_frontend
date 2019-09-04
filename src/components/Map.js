@@ -1,12 +1,27 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-// import { Form } from 'semantic-ui-react'
 import ReactMapGL, { Marker, Popup } from 'react-map-gl'
 import 'mapbox-gl/dist/mapbox-gl.css'
 
 const REACT_APP_NEIGHBORLY_TOKEN="pk.eyJ1IjoiamFpbWlldG4iLCJhIjoiY2p6dmliN2NqMDB0dzNubXJ5M3NsdTZieCJ9.KOQr6GZBT81gTk57JEZCuA"
 
 function Map(props) {
+
+    // let filteredPosts = []
+    let allPostsCopy = props.allPosts
+    console.log("map props", props.selectedCategory.category)
+
+    function filterPosts() {
+      if (!props.selectedCategory.category) {
+        return allPostsCopy
+      } else {
+        return allPostsCopy.filter(post => post.category === props.selectedCategory.category)
+      }
+    }
+
+    let filteredPostsCopy = filterPosts()
+
+    // console.log(allPostsCopy)
 
     const [viewport, setViewport] = useState({
         latitude: 40.737099,
@@ -28,7 +43,7 @@ function Map(props) {
                     setViewport(viewport)
                 }}
                 onClick={e => {props.addLongLat(e.lngLat)}}>
-                {props.allPosts.map(post => (
+                {filteredPostsCopy.map(post => (
                     <Marker
                         key={post.id}
                         latitude={Number(post.latitude)}
@@ -82,7 +97,8 @@ function mdp(dispatch) {
 
 function msp(state) {
   return {
-    allPosts: state.allPosts
+    allPosts: state.allPosts,
+    selectedCategory: state.selectedCategory
   }
 }
 

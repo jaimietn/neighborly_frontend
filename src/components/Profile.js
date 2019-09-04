@@ -47,7 +47,7 @@ class Profile extends Component {
           <p><strong>Posted: </strong>{post.posted}</p>
           <p><strong>Expires: </strong>{post.expires}</p>
           {post.neighborhood !== null ? (
-            <p><strong>Neighborhood: 
+            <p><strong>Neighborhood:
             </strong>{post.neighborhood}</p>
         ) : null }
           <p>{post.content}</p>

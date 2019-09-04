@@ -9,22 +9,23 @@ class Homepage extends Component {
 
   state = {
     category: ''
-    // allPosts: []
   }
 
-  handleChange = (event) => {
+  handleChange = (e) => {
     // console.log("target", event.target)
-    this.setState({ category: event.target.value})
+    // this.setState({ category: event.target.value})
+    console.log(e.target.value)
+    this.props.recordSelectedCategory(e)
   }
 
-  handleSubmit = (event) => {
-    // console.log("You selected this category:", this.state.category)
-    // console.log("homepage props", this.props)
-    //need filter function
-    event.preventDefault()
-    const selectedCategory = this.state.category
-    this.props.filterPosts(selectedCategory)
-  }
+  // handleSubmit = (event) => {
+  //   // console.log("You selected this category:", this.state.category)
+  //   // console.log("homepage props", this.props)
+  //   //need filter function
+  //   event.preventDefault()
+  //   const selectedCategory = this.state.category
+  //   // this.props.filterPosts(selectedCategory)
+  // }
 
   componentDidMount() {
     this.props.getAllPosts()
@@ -43,7 +44,7 @@ class Homepage extends Component {
           <form onSubmit={this.handleSubmit}>
             <label>
               {"Filter this map area by category: "}
-              <select value={this.state.category} onChange={this.handleChange}>
+              <select value={this.state.category} onChange={((e) => this.handleChange(e))}>
                 <option value='' disabled> Select a category </option>
                 <option value="Animal Sightings"> Animal Sightings </option>
                 <option value="For Sale"> Items For Sale </option>
@@ -88,9 +89,14 @@ function mdp(dispatch) {
   return {
     getAllPosts: () => {
       dispatch(getAllPosts())},
-    filterPosts: (selectedCategory) => dispatch({
-      type: "FILTER_POSTS",
-      payload: selectedCategory})
+
+    recordSelectedCategory: (e) => {
+      dispatch({
+      type: "RECORD_SELECTED_CATEGORY",
+      payload: ({
+        category: e.target.value
+      })})
+    }
   }
 }
 
