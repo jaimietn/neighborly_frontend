@@ -47,9 +47,13 @@
 }
 
 .welcome-title {
-  padding-top: 10%;
+  padding-top: 7%;
   font-size: 50px;
   color: #F9C80E;
+}
+
+.subtitle-text {
+  color: #585858;
 }
 
 /* --- NavBar --- */

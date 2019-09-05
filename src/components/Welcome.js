@@ -11,14 +11,16 @@ class Welcome extends Component {
         <div>
           <div>
             <h1 className="welcome-title">
-                Welcome to Neighborly
+              Welcome to Neighborly
             </h1>
+            <h2 className="subtitle-text">
+              Leave a note, anywhere in the world.
+            </h2>
             <div>
                 <LoginForm
                 login={this.props.login}/>
                 <SignUpForm
                 createUser={this.props.createUser}/>
-              <br></br>
             </div>
           </div>
           <div>
