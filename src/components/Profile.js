@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { getAllPosts } from '../actions.js'
-import { Card, Form } from 'semantic-ui-react';
+import { Card } from 'semantic-ui-react';
 const POSTS_URL = "http://localhost:3000/api/v1/posts"
 
 class Profile extends Component {

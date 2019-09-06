@@ -16,15 +16,3 @@
 15 💌 "Thank You Notes"
 
 removed categories: "General Notes", "General Questions", "Live Music", "Random", "Safety Concerns"
-
-message:
-Message.create(recipient: sender:)
-
-//Users
-username: "Jaimie", bio: "I love pugs.", 1234
-username: "Bobby", bio: "I'm a kid", password
-username: "Bert", pw: sully
-username: "Christine", pw: Christine
-username: "Vera", pw: vera
-username: "David", pw: david
-username: "Sully", pw: bert
