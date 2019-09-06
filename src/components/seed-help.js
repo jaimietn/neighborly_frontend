@@ -17,17 +17,14 @@
 
 removed categories: "General Notes", "General Questions", "Live Music", "Random", "Safety Concerns"
 
-//Users
-User id: 1, username: "Jaimie", bio: "I love pugs.", 1234
-User id: 27, username: "Bobby", bio: "I'm a kid", password
-User id: 28, username: "Bert", pw: sully
-User id: 31, username: "Christine", pw: Christine
-User id: 32, username: "Vera", pw: vera
-User id: 33, username: "David", pw: david
-User id: 34, username: "Sully", pw: bert
+message:
+Message.create(recipient: sender:)
 
-//Forgot passwords...
-User id: 2, username: "Kevin", bio: "currently napping"
-User id: 3, username: "Chett", bio: "kewl dewd"
-User id: 29, username: "Alex"
-User id: 30, username: "Alexis"
+//Users
+username: "Jaimie", bio: "I love pugs.", 1234
+username: "Bobby", bio: "I'm a kid", password
+username: "Bert", pw: sully
+username: "Christine", pw: Christine
+username: "Vera", pw: vera
+username: "David", pw: david
+username: "Sully", pw: bert
