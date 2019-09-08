@@ -13,7 +13,7 @@ class MainNavbar extends React.Component {
     return (
       <Navbar expand="lg" className="navBar-styling">
         <Navbar.Brand href="/neighborly" className="navLogo">Neighborly</Navbar.Brand>
-        <Nav className="mr-auto">
+        <Nav className="nav-links">
           <Nav.Link href="/aboutus">About Us</Nav.Link>
           <Nav.Link href="/profile">Profile</Nav.Link>
           <Nav.Link onClick={this.logout} name="logout" className="nav-item">Log Out</Nav.Link>

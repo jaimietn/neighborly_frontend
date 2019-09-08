@@ -2,6 +2,8 @@
 .App {
   text-align: center;
   margin: 0px;
+  font-family: "Verdana", Geneva, sans-serif;
+  color: #585858;
 }
 
 .button {
@@ -58,13 +60,17 @@
 
 /* --- NavBar --- */
 
-.navBar-styling{
-  background-color: gold;
+.navBar-styling {
+  background-color: #1BE7FF;
   box-shadow: 0 1px 2px 0 rgba(36, 50, 66, .15);
+  color: #383838;
+}
+.nav-links {
+  font-size: 18px;
 }
 .navLogo {
   font-size: 50px;
-  color: #F9C80E;
+  color: #383838;
 }
 
 .sticky {
