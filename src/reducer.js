@@ -55,6 +55,9 @@ function messagesReducer(state=defaultState.allMessages, action) {
     console.log("GET_ALL_MESSAGES", action.payload)
       return action.payload
 
+    case "ADD_NEW_MESSAGE":
+      return [...state, action.payload]
+
     default:
       return state
   }

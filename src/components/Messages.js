@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { getAllMessages } from '../actions.js'
 import { Card } from 'semantic-ui-react';
-const MESSAGES_URL = "http://localhost:3000/api/v1/messages"
+import MessageForm from './MessageForm'
+// const MESSAGES_URL = "http://localhost:3000/api/v1/messages"
 
 class Messages extends Component {
 
@@ -12,25 +13,55 @@ class Messages extends Component {
 
   render() {
     console.log("message page props", this.props.allMessages)
-    const userMessages = this.props.allMessages.filter(message => message.recipient_id === this.props.userId)
-    console.log("current user messages", userMessages)
-    let response
-    if (userMessages.length === 0) {
-      response = "You don't have any messages."
+
+    const userReceivedMessages = this.props.allMessages.filter(message => message.recipient_id === this.props.userId)
+
+    const userSentMessages = this.props.allMessages.filter(message => message.sender_id === this.props.userId)
+
+    let receivedMessages
+    let sentMessages
+
+    if (userReceivedMessages.length === 0) {
+      receivedMessages = "You don't have any messages."
     } else {
-      response = userMessages.map(message => (
-        <Card>
-        <h2>{message.title}</h2>
+      receivedMessages = userReceivedMessages.map(message => (
+        <Card key={message.id}>
+          <h2> {message.title} </h2>
+          <p> {message.content} </p>
         </Card>
       ))
     }
 
-    return(
+    if (userSentMessages.length === 0) {
+      sentMessages = "You haven't sent any messages!"
+    } else {
+      sentMessages = userSentMessages.map(message => (
+        <Card key={message.id}>
+          <h2> {message.title} </h2>
+          <p> {message.content} </p>
+        </Card>
+      ))
+    }
+
+    return (
       <div>
+        <MessageForm
+          userId={this.props.userId}
+          username={this.props.userName}/>
         <h2 className="form-title"> Hey, {this.props.username}! Here are all of your current messages. </h2>
-        <Card.Group itemsPerRow={4}>
-          {response}
-        </Card.Group>
+        <br></br>
+          <div className="messages-received-container">
+          <h2> Your inbox: </h2>
+          <Card.Group itemsPerRow={2}>
+            {receivedMessages}
+          </Card.Group>
+        </div>
+        <div className="messages-sent-container">
+          <h2> Your sent messages: </h2>
+          <Card.Group itemsPerRow={2}>
+            {sentMessages}
+          </Card.Group>
+        </div>
       </div>
     )
   }

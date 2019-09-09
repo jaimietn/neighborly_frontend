@@ -134,20 +134,20 @@ function Map(props) {
                         setSelectedPost(null)
                     }}>
                         <div className="popup-card">
-                            <h2><strong>{selectedPost.title}</strong></h2>
-                            <p><strong>{selectedPost.username}</strong>  posted on <strong>{selectedPost.posted}</strong></p>
-                            {/*<p><strong>Expires: </strong> {selectedPost.expires}</p>*/}
-                            <p><strong>Category: </strong> {selectedPost.category}</p>
-                            {selectedPost.neighborhood !== null ? (
-                              <p><strong>Neighborhood:
-                              </strong> {selectedPost.neighborhood}</p>
-                            ) : null }
-                            <p>{selectedPost.content}</p>
-                            {selectedPost.image ? (
-                                <img
-                                    className="popup-card-img"
-                                    src={selectedPost.image} alt="📷"/>
-                            ) : null }
+                          {selectedPost.image ? (
+                              <img
+                                  className="popup-card-img"
+                                  src={selectedPost.image} alt="📷"/>
+                          ) : null }
+                          <h3><strong>{selectedPost.title}</strong></h3>
+                          <p><strong>Category: </strong> {selectedPost.category}</p>
+                          <p><strong>{selectedPost.username}</strong> posted on <strong>{selectedPost.posted}</strong></p>
+                          {/*<p><strong>Expires: </strong> {selectedPost.expires}</p>*/}
+                          {selectedPost.neighborhood !== null ? (
+                            <p><strong>Neighborhood:
+                            </strong> {selectedPost.neighborhood}</p>
+                          ) : null }
+                          <p>{selectedPost.content}</p>
                         </div>
                     </Popup>
                 ) : null}
