@@ -16,6 +16,7 @@ class MainNavbar extends React.Component {
         <Nav className="nav-links">
           <Nav.Link href="/aboutus">About Us</Nav.Link>
           <Nav.Link href="/profile">Profile</Nav.Link>
+          <Nav.Link href="/messages">Messages</Nav.Link>
           <Nav.Link onClick={this.logout} name="logout" className="nav-item">Log Out</Nav.Link>
         </Nav>
       </Navbar>

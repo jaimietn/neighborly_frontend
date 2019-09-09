@@ -4,7 +4,7 @@ class SendMessageForm extends Component {
 
   render(){
     return(
-      <div> This is a chat </div>
+      <div> SendMessageForm Component </div>
     )
   }
 }

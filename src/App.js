@@ -4,6 +4,7 @@ import './App.css'
 import Welcome from './components/Welcome'
 import Homepage from './components/Homepage'
 import Profile from './components/Profile'
+import Messages from './components/Messages'
 import Header from './components/Header'
 import AboutUs from './components/AboutUs'
 
@@ -148,6 +149,18 @@ class App extends Component {
               </>
             )}
             />
+            <Route
+              exact path="/messages"
+              render={() => (
+                <>
+                  <Header />
+                  <Messages
+                    userId={this.state.user.id}
+                    username={this.state.user.username}
+                  />
+                </>
+              )}
+              />
             <Route
             exact path="/aboutus"
             render={() => (
