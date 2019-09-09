@@ -118,14 +118,6 @@
   /* padding-top: 1em; */
 }
 
-/* --- Homepage - CHAT --- */
-.chat-box {
-  float: left;
-  width: 30%;
-  padding: 10px;
-  margin-top: 0%;
-}
-
 /* --- Profile --- */
 .ui.cards {
   place-content: center;
@@ -172,6 +164,17 @@
 
 .post-title {
   padding-top: .5em;
+}
+
+/* --- Messages --- */
+.messages-received-container {
+  float: left;
+  width: 50%;
+}
+
+.messages-sent-container {
+  float: left;
+  width: 50%;
 }
 
 /* --- About Us --- */

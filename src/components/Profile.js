@@ -52,11 +52,6 @@ class Profile extends Component {
           <p><strong>{post.category}</strong>
           {(post.neighborhood !== null) ? (<strong>{" - " + post.neighborhood} </strong> ) : null } </p>
           <p>{post.content}</p>
-
-          {/*<Form.Button
-            onClick={() => this.editPost(post.id)}>
-            Edit Post
-          </Form.Button>*/}
           <button className="delete-btn"
             onClick={(e) => this.deleteSinglePost(post.id)}>
             &times;
@@ -64,7 +59,7 @@ class Profile extends Component {
           <p className="date-posted">Posted by <strong> {post.username}</strong> on {post.posted}</p>
         </Card>
     ))
-}
+    }
     return (
       <div>
         <div>

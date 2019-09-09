@@ -3,6 +3,7 @@ import { combineReducers } from 'redux'
 const defaultState = {
   longLat: [],
   allPosts: [],
+  allMessages: [],
   selectedCategory: ''
 }
 
@@ -48,9 +49,21 @@ function postsReducer(state=defaultState.allPosts, action) {
   }
 }
 
+function messagesReducer(state=defaultState.allMessages, action) {
+  switch (action.type) {
+    case "GET_ALL_MESSAGES":
+    console.log("GET_ALL_MESSAGES", action.payload)
+      return action.payload
+
+    default:
+      return state
+  }
+}
+
 const rootReducer = combineReducers({
   longLat: longLatReducer,
   allPosts: postsReducer,
+  allMessages: messagesReducer,
   selectedCategory: selectedCategoryReducer
 })
 

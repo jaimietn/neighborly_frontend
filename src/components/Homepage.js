@@ -16,15 +16,6 @@ class Homepage extends Component {
     this.props.recordSelectedCategory(e)
   }
 
-  // handleSubmit = (event) => {
-  //   // console.log("You selected this category:", this.state.category)
-  //   // console.log("homepage props", this.props)
-  //   //need filter function
-  //   event.preventDefault()
-  //   const selectedCategory = this.state.category
-  //   // this.props.filterPosts(selectedCategory)
-  // }
-
   componentDidMount() {
     this.props.getAllPosts()
   }
