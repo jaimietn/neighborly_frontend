@@ -66,7 +66,7 @@ class MessageForm extends Component {
         <div>
           <h2 className="form-title">Send a Message</h2>
           <br />
-          <Form
+          <Form className="message-form"
             onSubmit={this.handleSubmit}>
               <Form.Field>
                   <Form.Input

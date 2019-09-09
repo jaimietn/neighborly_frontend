@@ -28,6 +28,8 @@ class Messages extends Component {
         <Card key={message.id}>
           <h2> {message.title} </h2>
           <p> {message.content} </p>
+          <p> Sent from {message.sender_id} on {message.sent} </p>
+          <button> Reply </button>
         </Card>
       ))
     }
@@ -39,6 +41,8 @@ class Messages extends Component {
         <Card key={message.id}>
           <h2> {message.title} </h2>
           <p> {message.content} </p>
+          <p> Sent to {message.recipient_id} on {message.sent} </p>
+          <button> Send a follow-up message </button>
         </Card>
       ))
     }
@@ -52,13 +56,13 @@ class Messages extends Component {
         <br></br>
           <div className="messages-received-container">
           <h2> Your inbox: </h2>
-          <Card.Group itemsPerRow={2}>
+          <Card.Group itemsPerRow={1}>
             {receivedMessages}
           </Card.Group>
         </div>
         <div className="messages-sent-container">
           <h2> Your sent messages: </h2>
-          <Card.Group itemsPerRow={2}>
+          <Card.Group itemsPerRow={1}>
             {sentMessages}
           </Card.Group>
         </div>

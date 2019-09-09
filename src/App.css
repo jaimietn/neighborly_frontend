@@ -167,6 +167,12 @@
 }
 
 /* --- Messages --- */
+.message-form {
+  margin-left: 15%;
+  margin-right: 15%;
+  margin-bottom: 2em;
+}
+
 .messages-received-container {
   float: left;
   width: 50%;

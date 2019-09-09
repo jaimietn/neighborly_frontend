@@ -133,6 +133,7 @@ function Map(props) {
                     onClose={() => {
                         setSelectedPost(null)
                     }}>
+                      <div>
                         <div className="popup-card">
                           {selectedPost.image ? (
                               <img
@@ -149,6 +150,8 @@ function Map(props) {
                           ) : null }
                           <p>{selectedPost.content}</p>
                         </div>
+                        <button> Reply to Post </button>
+                      </div>
                     </Popup>
                 ) : null}
             </ReactMapGL>
