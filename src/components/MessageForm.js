@@ -16,6 +16,11 @@ class MessageForm extends Component {
     recipient_id: ''
   }
 
+  // componentDidMount(this.props.selectedPostId) {
+  //   this.props.getSinglePost(this.props.selectedPostId)
+  //   console.log(selectedPostObj)
+  // }
+
   handleChange = (event) => {
     // console.log(this.state)
     this.setState({ [event.target.name]: event.target.value })
@@ -69,6 +74,9 @@ class MessageForm extends Component {
           <Form className="message-form"
             onSubmit={this.handleSubmit}>
               <Form.Field>
+              Replying to:
+              <br />
+              Re:
                   <Form.Input
                   placeholder="Enter title"
                   name="title"

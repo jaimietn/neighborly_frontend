@@ -17,7 +17,7 @@
   bottom: 10px;
   width: 100vw;
   /* margin-left: -10em; */
-  background-repeat: no-repeat;
+  /* background-repeat: no-repeat; */
 }
 
 .city-background-login{
@@ -187,6 +187,15 @@
 .about-text {
   margin-left: 15%;
   margin-right: 15%;
+}
+
+.city-background-about-us{
+  background-image: url('images/skyline-drawing.png') !important;
+  padding: 0px;
+  min-height: 25vh;
+  bottom: 10px;
+  width: 100%;
+  margin-top: 15%;
 }
 
 /* --- Not in Use --- */

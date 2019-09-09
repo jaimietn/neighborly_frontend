@@ -4,7 +4,28 @@ const defaultState = {
   longLat: [],
   allPosts: [],
   allMessages: [],
-  selectedCategory: ''
+  selectedCategory: '',
+  selectedPostId: '',
+  selectedPost: {}
+}
+
+function selectedPostReducer(state=defaultState.selectedPost, action) {
+  switch (action.type) {
+    case "GET_SINGLE_POST":
+      return action.payload
+    default:
+      return state
+  }
+}
+
+function selectedPostIdReducer(state=defaultState.selectedPostId, action) {
+  switch (action.type) {
+    case "GET_SELECTED_POST_ID":
+      console.log("GET_SELECTED_POST_ID payload", action.payload)
+      return action.payload
+    default:
+      return state
+  }
 }
 
 function longLatReducer(state=defaultState.longLat, action) {
@@ -58,6 +79,10 @@ function messagesReducer(state=defaultState.allMessages, action) {
     case "ADD_NEW_MESSAGE":
       return [...state, action.payload]
 
+    case "DELETE_MESSAGE":
+      const messageId = action.payload
+      return state.filter(message => message.id !== messageId)
+
     default:
       return state
   }
@@ -67,7 +92,9 @@ const rootReducer = combineReducers({
   longLat: longLatReducer,
   allPosts: postsReducer,
   allMessages: messagesReducer,
-  selectedCategory: selectedCategoryReducer
+  selectedCategory: selectedCategoryReducer,
+  selectedPostId: selectedPostIdReducer,
+  selectedPost: selectedPostReducer
 })
 
 export default rootReducer

@@ -5,6 +5,7 @@ const AboutUs=()=>{
     return(
     <div>
         <div>
+            <br/>
             <h2 className="form-title"> About Us </h2>
             <br></br>
             <p className="about-text">
@@ -14,9 +15,8 @@ const AboutUs=()=>{
                 Whether you see a stray dog in your neighborhood (oh no!), are visiting relatives and want checkout local yard sales, or are vacationing Tokyo and found someone’s keys at a bar... And now there’s an app for that!
                 Neighborly allows you to select any location in the world and leave a note or checkout what else has been posted in that neighborhood. Go forth and be Neighborly!
             </p>
-            <br></br>
         </div>
-        <div className="city-background"></div>
+        <div className="city-background-about-us"></div>
     </div>
     )
 }

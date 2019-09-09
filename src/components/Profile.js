@@ -12,10 +12,6 @@ class Profile extends Component {
     }
   }
 
-  // editPost = (postId) => {
-  //   console.log("edit post:", postId)
-  // }
-
   deleteSinglePost = (postId) => {
     fetch(`${POSTS_URL}/${postId}`,  {
       method: 'DELETE',

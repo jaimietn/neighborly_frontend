@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Route, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import ReactMapGL, { Marker, Popup } from 'react-map-gl'
 import 'mapbox-gl/dist/mapbox-gl.css'
@@ -7,10 +8,8 @@ const REACT_APP_NEIGHBORLY_TOKEN="pk.eyJ1IjoiamFpbWlldG4iLCJhIjoiY2p6dmliN2NqMDB
 
 function Map(props) {
 
-    // let filteredPosts = []
     let allPostsCopy = props.allPosts
-    // console.log("map props", props.selectedCategory.category)
-    // console.log("map props", props.selectedCategory)
+
 
     function filterPosts() {
       if (!props.selectedCategory.category) {
@@ -130,7 +129,8 @@ function Map(props) {
                     <Popup
                     latitude={Number(selectedPost.latitude)}
                     longitude={Number(selectedPost.longitude)}
-                    onClose={() => {
+                    onClose={(event) => {
+                        console.log("on close", event)
                         setSelectedPost(null)
                     }}>
                       <div>
@@ -150,8 +150,12 @@ function Map(props) {
                           ) : null }
                           <p>{selectedPost.content}</p>
                         </div>
-                        <button> Reply to Post </button>
                       </div>
+                      <button onClick={(event) => {
+                              console.log("EVENT", event.target.id)
+                          props.getSinglePost(event.target.id)
+                          props.history.push('/messages')
+                      }} id={selectedPost.id}> Reply to Post </button>
                     </Popup>
                 ) : null}
             </ReactMapGL>
@@ -161,15 +165,21 @@ function Map(props) {
 
 function mdp(dispatch) {
   return {
-    addLongLat: (longLat) => dispatch({type: "GET_LONG_LAT", payload: longLat})
+    addLongLat: (longLat) => dispatch({type: "GET_LONG_LAT", payload: longLat}),
+    getSinglePost: (selectedPostId) => dispatch({type: "GET_SINGLE_POST",
+    payload: selectedPostId}),
+    // getSinglePost: (selectedPostId) => dispatch({type: "GET_SINGLE_POST",
+    // payload: selectedPost})
   }
 }
 
 function msp(state) {
   return {
     allPosts: state.allPosts,
-    selectedCategory: state.selectedCategory
+    selectedCategory: state.selectedCategory,
+    selectedPostId: state.selectedPostId,
+    selectedPost: state.selectedPost
   }
 }
 
-export default connect(msp, mdp)(Map)
+export default withRouter(connect(msp, mdp)(Map))
