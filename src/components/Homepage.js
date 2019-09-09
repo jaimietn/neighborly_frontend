@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import PostForm from './PostForm'
 import { getAllPosts } from '../actions.js'
 import Map from './Map'
+import Chat from './Chat/Chat'
 
 class Homepage extends Component {
 
@@ -70,10 +71,14 @@ class Homepage extends Component {
             userId={this.props.userId}
             username={this.props.username}/>
         </div>
+
         <div className="map-container">
           <Map
             userId={this.props.userId}
             username={this.props.username}/>
+        </div>
+        <div className="chat-box">
+          <Chat />
         </div>
       </>
     )

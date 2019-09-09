@@ -5,7 +5,6 @@ import LoginForm from './LoginForm'
 
 class Welcome extends Component {
 
-
     render() {
       return (
         <div>
