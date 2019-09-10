@@ -6,7 +6,17 @@ const defaultState = {
   allMessages: [],
   selectedCategory: '',
   selectedPostId: '',
-  selectedPost: {}
+  selectedPost: {},
+  selectedMessage: {}
+}
+
+function selectedMessageReducer(state=defaultState.selectedPost, action) {
+  switch (action.type) {
+    case "GET_SINGLE_MESSAGE":
+      return action.payload
+    default:
+      return state
+  }
 }
 
 function selectedPostReducer(state=defaultState.selectedPost, action) {
@@ -93,7 +103,8 @@ const rootReducer = combineReducers({
   allPosts: postsReducer,
   allMessages: messagesReducer,
   selectedCategory: selectedCategoryReducer,
-  selectedPost: selectedPostReducer
+  selectedPost: selectedPostReducer,
+  selectedMessage: selectedMessageReducer
 })
 
 export default rootReducer

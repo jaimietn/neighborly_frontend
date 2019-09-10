@@ -9,23 +9,12 @@ const  defaultState = {
      sent: '',
      post_id: '',
      sender_id: '',
-     recipient_id: ''
+     recipient_id: '',
 }
-// const MESSAGES_URL = "http://localhost:3000/api/v1/messages"
 
 class MessageForm extends Component {
 
   state = defaultState
-
-  // componentDidMount(this.props.selectedPostId) {
-  //   this.props.getSinglePost(this.props.selectedPostId)
-  //   console.log(selectedPostObj)
-  // }
-  // componentDidUpdate(prevProps){
-  //   if (prevProps.selectedPost !== this.props.selectedPost) {
-  //
-  //   }
-  // }
 
   handleChange = (event) => {
     // console.log(this.state)
@@ -33,16 +22,13 @@ class MessageForm extends Component {
   }
 
   handleSubmit = (event) => {
-    // event.preventDefault()
-    // console.log("bert id", this.props.userId)
-    // console.log("bert name", this.props.username)
 
-    let title = this.props.selectedPost.title
+    let title = this.props.selectedMessage.title
     let content = this.state.content
     let sent = new Date().toDateString()
-    let post_id = this.props.selectedPost.id
+    let post_id = this.props.selectedMessage.post_id
     let sender_id = this.props.userId
-    let recipient_id = this.props.selectedPost.user_id
+    let recipient_id = this.props.reply_status ?  this.props.selectedMessage.sender.id : this.props.selectedMessage.recipient.id
     console.log("props", this.props)
 
     const newMessage = {
@@ -60,14 +46,31 @@ class MessageForm extends Component {
   }
 
   render(){
+    console.log(this.props.selectedMessage)
+    // const senderUser = this.props.selectedMessage.sender
+    // console.log(senderUser)
     return(
         <div>
           <h2 className="form-title">Send a Message</h2>
           <br />
+
           <Form className="message-form"
             onSubmit={this.handleSubmit}>
-              <p> Replying to: {this.props.selectedPost.username}</p>
-              <p> Re: {this.props.selectedPost.title} </p>
+            <p> Replying to: {this.props.selectedMessage.sender ? this.props.reply_status ?  this.props.selectedMessage.sender.username : this.props.selectedMessage.recipient.username : null} </p>
+            {/*(() => {
+              if (this.props.selectedPost.username === this.props.userName) {
+              return (
+                <p> Replying to: {this.props.senderUsername}
+                </p>
+              )
+            } else {
+              return (
+                <p> Replying to: {this.props.selectedPost.username}
+                </p>)}
+              })()*/}
+              {/*<p> Replying to: {this.props.selectedPost.username}
+                </p>*/}
+              <p> Re: {this.props.selectedMessage.title} </p>
               <Form.Field>
                   <Form.Input
                   placeholder="Write your message here."
@@ -91,7 +94,8 @@ function mdp(dispatch) {
 function msp(state){
   console.log(state.selectedPost)
   return {
-    selectedPost: state.selectedPost
+    selectedPost: state.selectedPost,
+    selectedMessage: state.selectedMessage
   }
 }
 

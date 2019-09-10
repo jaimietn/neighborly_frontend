@@ -36,6 +36,21 @@ function getSinglePost(dispatch, selectedPostId){
       })
 }
 
+function getSingleMessage(dispatch, selectedMessageId) {
+  fetch(`${MESSAGES_URL}/${selectedMessageId}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      Accepts: 'application/json'
+    }
+  })
+  .then(resp => resp.json())
+  .then(selectedMessage => {
+    dispatch({type: "GET_SINGLE_MESSAGE",
+    payload: selectedMessage})
+  })
+}
+
 function addNewMessage(newMessage){
   return function(dispatch){
   fetch(`${MESSAGES_URL}`,{
@@ -74,4 +89,4 @@ function getAllMessages(){
   }
 }
 
-export {getAllPosts, getSinglePost, getAllMessages, addNewMessage}
+export {getAllPosts, getSinglePost, getAllMessages, addNewMessage, getSingleMessage}
