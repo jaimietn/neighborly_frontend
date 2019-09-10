@@ -3,6 +3,7 @@ import { Route, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import ReactMapGL, { Marker, Popup } from 'react-map-gl'
 import 'mapbox-gl/dist/mapbox-gl.css'
+import { getSinglePost } from '../actions.js'
 
 const REACT_APP_NEIGHBORLY_TOKEN="pk.eyJ1IjoiamFpbWlldG4iLCJhIjoiY2p6dmliN2NqMDB0dzNubXJ5M3NsdTZieCJ9.KOQr6GZBT81gTk57JEZCuA"
 
@@ -166,8 +167,9 @@ function Map(props) {
 function mdp(dispatch) {
   return {
     addLongLat: (longLat) => dispatch({type: "GET_LONG_LAT", payload: longLat}),
-    getSinglePost: (selectedPostId) => dispatch({type: "GET_SINGLE_POST",
-    payload: selectedPostId}),
+    getSinglePost: (selectedPostId) => {
+        getSinglePost(dispatch, selectedPostId)}
+    // payload: selectedPostId}),
     // getSinglePost: (selectedPostId) => dispatch({type: "GET_SINGLE_POST",
     // payload: selectedPost})
   }

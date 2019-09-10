@@ -40,7 +40,7 @@ class Messages extends Component {
         <Card key={message.id}>
           <h2> {message.title} </h2>
           <p> {message.content} </p>
-          <p> Sent from {message.sender_id} on {message.sent} </p>
+          <p> Sent from {message.sender.username} on {message.sent} </p>
           <button className="delete-btn"
             onClick={(e) => this.deleteSingleMessage(message.id)}>
             &times;
@@ -57,7 +57,7 @@ class Messages extends Component {
         <Card key={message.id}>
           <h2> {message.title} </h2>
           <p> {message.content} </p>
-          <p> Sent to {message.recipient_id} on {message.sent} </p>
+          <p> Sent to {message.recipient.username} on {message.sent} </p>
           <button className="delete-btn"
             onClick={(e) => this.deleteSingleMessage(message.id)}>
             &times;
@@ -75,13 +75,13 @@ class Messages extends Component {
         <h2 className="form-title"> Hey, {this.props.username}! Here are all of your current messages. </h2>
         <br></br>
           <div className="messages-received-container">
-          <h3> Your inbox: </h3>
+          <h3> Your Inbox: </h3>
           <Card.Group itemsPerRow={1}>
             {receivedMessages}
           </Card.Group>
         </div>
         <div className="messages-sent-container">
-          <h3> Your sent messages: </h3>
+          <h3> Your Sent Messages: </h3>
           <Card.Group itemsPerRow={1}>
             {sentMessages}
           </Card.Group>
@@ -103,7 +103,8 @@ function mdp(dispatch) {
 
 function msp(state) {
   return {
-    allMessages: state.allMessages
+    allMessages: state.allMessages,
+    selectedPost: state.selectedPost
   }
 }
 

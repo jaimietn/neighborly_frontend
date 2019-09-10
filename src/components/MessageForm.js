@@ -27,16 +27,16 @@ class MessageForm extends Component {
   }
 
   handleSubmit = (event) => {
-    event.preventDefault();
+    event.preventDefault()
     // console.log("bert id", this.props.userId)
     // console.log("bert name", this.props.username)
 
-    let title = this.state.title
+    let title = this.props.selectedPost.title
     let content = this.state.content
     let sent = new Date().toDateString()
-    let post_id = '2'
+    let post_id = this.props.selectedPost.id
     let sender_id = this.props.userId
-    let recipient_id = '3'
+    let recipient_id = this.props.selectedPost.user_id
     console.log("props", this.props)
 
     const newMessage = {
@@ -73,16 +73,8 @@ class MessageForm extends Component {
           <br />
           <Form className="message-form"
             onSubmit={this.handleSubmit}>
-              <Form.Field>
-              Replying to:
-              <br />
-              Re:
-                  <Form.Input
-                  placeholder="Enter title"
-                  name="title"
-                  onChange={this.handleChange}
-                  value={this.state.title} />
-              </Form.Field>
+              <p> Replying to: {this.props.selectedPost.username}</p>
+              <p> Re: {this.props.selectedPost.title} </p>
               <Form.Field>
                   <Form.Input
                   placeholder="Write your message here."
@@ -105,4 +97,10 @@ function mdp(dispatch) {
   }
 }
 
-export default connect(null, mdp)(MessageForm)
+function msp(state){
+  return {
+    selectedPost: state.selectedPost
+  }
+}
+
+export default connect(msp, mdp)(MessageForm)

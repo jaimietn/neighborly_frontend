@@ -16,9 +16,8 @@ function getAllPosts(){
   }
 }
 
-function getSinglePost(selectedPostId){
+function getSinglePost(dispatch, selectedPostId){
   console.log("selectedpostid", selectedPostId)
-  return function(dispatch){
     fetch(`http://localhost:3000/api/v1/posts/${selectedPostId}`, {
       method: 'GET',
       headers: {
@@ -29,10 +28,10 @@ function getSinglePost(selectedPostId){
       .then(resp => resp.json())
       .then(selectedPost => {
         console.log("get single post", dispatch)
+        console.log(selectedPost)
         dispatch({type: "GET_SINGLE_POST",
         payload: selectedPost})
       })
-  }
 }
 
 function getAllMessages(){
