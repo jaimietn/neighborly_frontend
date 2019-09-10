@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { getAllMessages } from '../actions.js'
-import { Card } from 'semantic-ui-react';
+import { getAllMessages, getSinglePost } from '../actions.js'
+import { Card } from 'semantic-ui-react'
 import MessageForm from './MessageForm'
 const MESSAGES_URL = "http://localhost:3000/api/v1/messages"
 
@@ -37,15 +37,16 @@ class Messages extends Component {
       receivedMessages = "You don't have any messages."
     } else {
       receivedMessages = userReceivedMessages.map(message => (
+
         <Card key={message.id}>
-          <h2> {message.title} </h2>
+          <h2> Re: {message.title} </h2>
           <p> {message.content} </p>
           <p> Sent from {message.sender.username} on {message.sent} </p>
           <button className="delete-btn"
             onClick={(e) => this.deleteSingleMessage(message.id)}>
             &times;
           </button>
-          <button> Reply </button>
+          <button onClick={(e) => { this.props.getSinglePost(message.post_id)}} id={message.id}> Reply </button>
         </Card>
       ))
     }
@@ -55,14 +56,14 @@ class Messages extends Component {
     } else {
       sentMessages = userSentMessages.map(message => (
         <Card key={message.id}>
-          <h2> {message.title} </h2>
+          <h2> Re: {message.title} </h2>
           <p> {message.content} </p>
           <p> Sent to {message.recipient.username} on {message.sent} </p>
           <button className="delete-btn"
             onClick={(e) => this.deleteSingleMessage(message.id)}>
             &times;
           </button>
-          <button> Send a follow-up message </button>
+          <button onClick={(e) => this.props.getSinglePost(message.post_id)} id={message.id}> Send a follow-up message </button>
         </Card>
       ))
     }
@@ -97,14 +98,16 @@ function mdp(dispatch) {
       dispatch(getAllMessages())},
     deleteMessage: (messageId) => dispatch({
       type: "DELETE_MESSAGE",
-      payload: messageId})
+      payload: messageId}),
+    getSinglePost: (selectedPostId) => {
+      getSinglePost(dispatch, selectedPostId)}
   }
 }
 
 function msp(state) {
   return {
     allMessages: state.allMessages,
-    selectedPost: state.selectedPost
+    selectedPost: state.selectedPost,
   }
 }
 

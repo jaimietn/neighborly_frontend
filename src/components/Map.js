@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Route, withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import ReactMapGL, { Marker, Popup } from 'react-map-gl'
 import 'mapbox-gl/dist/mapbox-gl.css'
@@ -10,7 +10,6 @@ const REACT_APP_NEIGHBORLY_TOKEN="pk.eyJ1IjoiamFpbWlldG4iLCJhIjoiY2p6dmliN2NqMDB
 function Map(props) {
 
     let allPostsCopy = props.allPosts
-
 
     function filterPosts() {
       if (!props.selectedCategory.category) {
@@ -166,7 +165,9 @@ function Map(props) {
 
 function mdp(dispatch) {
   return {
-    addLongLat: (longLat) => dispatch({type: "GET_LONG_LAT", payload: longLat}),
+    addLongLat: (longLat) => dispatch({
+        type: "GET_LONG_LAT",
+        payload: longLat}),
     getSinglePost: (selectedPostId) => {
         getSinglePost(dispatch, selectedPostId)}
     // payload: selectedPostId}),

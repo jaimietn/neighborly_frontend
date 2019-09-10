@@ -4,19 +4,21 @@ import { connect } from 'react-redux'
 
 const POSTS_URL = "http://localhost:3000/api/v1/posts"
 
+const defaultState = {
+  latitude: '',
+  longitude: '',
+  posted: '',
+  expires: '',
+  category: '',
+  title: '',
+  neighborhood: '',
+  content: '',
+  image: ''
+}
+
 class PostForm extends Component {
 
-  state = {
-    latitude: '',
-    longitude: '',
-    posted: '',
-    expires: '',
-    category: '',
-    title: '',
-    neighborhood: '',
-    content: '',
-    image: ''
-  }
+  state = defaultState
 
   nextweek() {
     var today = new Date()
@@ -76,6 +78,7 @@ class PostForm extends Component {
       .then(newPost => {
         console.log(newPost)
       })
+    this.setState(defaultState)
   }
 
   render(){

@@ -1,24 +1,30 @@
 import React, { Component } from 'react'
 import { Form } from 'semantic-ui-react'
+import { addNewMessage } from '../actions.js'
 import { connect } from 'react-redux'
 
-const MESSAGES_URL = "http://localhost:3000/api/v1/messages"
-
+const  defaultState = {
+     title: '',
+     content: '',
+     sent: '',
+     post_id: '',
+     sender_id: '',
+     recipient_id: ''
+}
+// const MESSAGES_URL = "http://localhost:3000/api/v1/messages"
 
 class MessageForm extends Component {
 
-  state = {
-    title: '',
-    content: '',
-    sent: '',
-    post_id: '',
-    sender_id: '',
-    recipient_id: ''
-  }
+  state = defaultState
 
   // componentDidMount(this.props.selectedPostId) {
   //   this.props.getSinglePost(this.props.selectedPostId)
   //   console.log(selectedPostObj)
+  // }
+  // componentDidUpdate(prevProps){
+  //   if (prevProps.selectedPost !== this.props.selectedPost) {
+  //
+  //   }
   // }
 
   handleChange = (event) => {
@@ -27,7 +33,7 @@ class MessageForm extends Component {
   }
 
   handleSubmit = (event) => {
-    event.preventDefault()
+    // event.preventDefault()
     // console.log("bert id", this.props.userId)
     // console.log("bert name", this.props.username)
 
@@ -49,21 +55,8 @@ class MessageForm extends Component {
     }
 
     this.props.addNewMessage(newMessage)
-
     // console.log(user)
-    fetch(`${MESSAGES_URL}`,{
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json"
-        }, body: JSON.stringify({
-          message: newMessage
-        })
-      })
-      .then(resp => resp.json())
-      .then(newMessage => {
-        console.log(newMessage)
-      })
+    this.setState(defaultState)
   }
 
   render(){
@@ -91,13 +84,12 @@ class MessageForm extends Component {
 
 function mdp(dispatch) {
   return {
-    addNewMessage: (newMessage) => dispatch({
-    type: "ADD_NEW_MESSAGE",
-    payload: newMessage})
+    addNewMessage: (newMessage) => dispatch(addNewMessage(newMessage)),
   }
 }
 
 function msp(state){
+  console.log(state.selectedPost)
   return {
     selectedPost: state.selectedPost
   }

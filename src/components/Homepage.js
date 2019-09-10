@@ -13,6 +13,7 @@ class Homepage extends Component {
   handleChange = (e) => {
     console.log(e.target.value)
     this.props.recordSelectedCategory(e)
+    this.setState({ category: e.target.value })
   }
 
   componentDidMount() {
@@ -20,7 +21,7 @@ class Homepage extends Component {
   }
 
   render() {
-    console.log(this.props.allPosts)
+    // console.log(this.props.allPosts)
     // console.log("current user posts", this.state.allPosts.filter(post => post.user_id === this.props.userId))
     // console.log("homepage props", this.props)
     return (

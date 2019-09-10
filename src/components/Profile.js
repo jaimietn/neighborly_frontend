@@ -25,7 +25,7 @@ class Profile extends Component {
   }
 
   render() {
-    console.log(this.props)
+    // console.log(this.props)
     // console.log("all posts", this.props.allPosts)
     const userPosts = this.props.allPosts.filter(post => post.user_id === this.props.userId)
     // console.log("bert's posts", userPosts)
@@ -85,7 +85,7 @@ function mdp(dispatch) {
 }
 
 function msp(state){
-  console.log(state)
+  // console.log(state)
   return {
     allPosts: state.allPosts
   }

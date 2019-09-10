@@ -93,7 +93,6 @@ const rootReducer = combineReducers({
   allPosts: postsReducer,
   allMessages: messagesReducer,
   selectedCategory: selectedCategoryReducer,
-  // selectedPostId: selectedPostIdReducer,
   selectedPost: selectedPostReducer
 })
 

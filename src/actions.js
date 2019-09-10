@@ -1,3 +1,5 @@
+const MESSAGES_URL = "http://localhost:3000/api/v1/messages"
+
 function getAllPosts(){
   return function(dispatch){
     fetch('http://localhost:3000/api/v1/posts', {
@@ -34,6 +36,26 @@ function getSinglePost(dispatch, selectedPostId){
       })
 }
 
+function addNewMessage(newMessage){
+  return function(dispatch){
+  fetch(`${MESSAGES_URL}`,{
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      }, body: JSON.stringify({
+        message: newMessage
+      })
+    })
+    .then(resp => resp.json())
+    .then(newMessage => {
+      console.log(newMessage)
+      dispatch({type: "ADD_NEW_MESSAGE",
+      payload: newMessage})
+    })
+  }
+}
+
 function getAllMessages(){
   return function(dispatch){
     fetch('http://localhost:3000/api/v1/messages', {
@@ -52,4 +74,4 @@ function getAllMessages(){
   }
 }
 
-export {getAllPosts, getSinglePost, getAllMessages}
+export {getAllPosts, getSinglePost, getAllMessages, addNewMessage}
