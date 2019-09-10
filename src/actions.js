@@ -29,10 +29,24 @@ function getSinglePost(dispatch, selectedPostId){
     })
       .then(resp => resp.json())
       .then(selectedPost => {
+        const newMessageObject = {
+          title: selectedPost.title,
+          post_id: selectedPost.id,
+          recipient: {
+            id: selectedPost.user_id,
+            username: selectedPost.username
+          },
+          sender: {
+            id: selectedPost.user_id,
+            username: selectedPost.username
+          }
+        }
         console.log("get single post", dispatch)
         console.log(selectedPost)
         dispatch({type: "GET_SINGLE_POST",
         payload: selectedPost})
+        dispatch({type: "GET_SINGLE_MESSAGE",
+        payload: newMessageObject})
       })
 }
 

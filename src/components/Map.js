@@ -170,9 +170,6 @@ function mdp(dispatch) {
         payload: longLat}),
     getSinglePost: (selectedPostId) => {
         getSinglePost(dispatch, selectedPostId)}
-    // payload: selectedPostId}),
-    // getSinglePost: (selectedPostId) => dispatch({type: "GET_SINGLE_POST",
-    // payload: selectedPost})
   }
 }
 

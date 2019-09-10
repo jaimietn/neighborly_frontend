@@ -92,7 +92,7 @@ function mdp(dispatch) {
 }
 
 function msp(state){
-  console.log(state.selectedPost)
+  console.log(state.selectedMessage)
   return {
     selectedPost: state.selectedPost,
     selectedMessage: state.selectedMessage
