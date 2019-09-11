@@ -83,11 +83,11 @@ class PostForm extends Component {
 
   render(){
     return(
-        <div className="post-form-outer-container">
+        <div className="post-form-container">
           <h2 className="form-title">Leave a Note</h2>
-          <h4 className="subtitle-text">
+          <h5 className="subtitle-text">
             Start by clicking on a location
-          </h4>
+          </h5>
           <Form
             onSubmit={this.handleSubmit}>
               <Form.Field>

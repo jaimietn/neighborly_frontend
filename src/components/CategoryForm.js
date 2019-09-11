@@ -22,8 +22,9 @@ class CategoryForm extends Component {
       <div className="category-form-container">
           <Form>
             {/* removed from form: onSubmit={this.handleSubmit}*/}
-            <label className="subtitle-text">
-              {"Filter this map area by category: "}
+              <h5 className="subtitle-text">
+                Search all posts by category
+              </h5>
               <select value={this.state.category} onChange={((e) => this.handleChange(e))}>
                 <option value='' disabled> Select a category </option>
                 <option value="Show All"> Show All </option>
@@ -43,7 +44,6 @@ class CategoryForm extends Component {
                 <option value="Spotted"> Spotted </option>
                 <option value="Thank You Notes"> Thank You Notes </option>
               </select>
-            </label>
             {  /* <input className="button" type="submit" value="Submit" />*/}
           </Form>
       </div>

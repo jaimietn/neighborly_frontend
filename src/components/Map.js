@@ -25,11 +25,11 @@ function Map(props) {
     let filteredPostsCopy = filterPosts()
 
     const [viewport, setViewport] = useState({
-        latitude: 40.737099,
-        longitude: -73.942656,
+        latitude: 40.724056,
+        longitude: -73.920982,
         width: "100vw",
         height: "100vh",
-        zoom: 11
+        zoom: 11.25
     })
     const[selectedPost, setSelectedPost] = useState(null)
 
@@ -135,19 +135,19 @@ function Map(props) {
                         setSelectedPost(null)
                     }}>
                       <div>
-                        <div className="popup-card">
+                        <div className="popup-internal-card">
                           {selectedPost.image ? (
                               <img
                                   className="popup-card-img"
                                   src={selectedPost.image} alt="📷"/>
                           ) : null }
                           <h3><strong>{selectedPost.title}</strong></h3>
-                          <p><strong>Category: </strong> {selectedPost.category}</p>
-                          <p><strong>{selectedPost.username}</strong> posted on <strong>{selectedPost.posted}</strong></p>
+                          <p>Category - {selectedPost.category}</p>
+                          <p>{selectedPost.username} posted on {selectedPost.posted}</p>
                           {selectedPost.neighborhood !== null ? (
-                            <p><strong>Neighborhood:
-                            </strong> {selectedPost.neighborhood}</p>
+                          <p>Neighborhood - {selectedPost.neighborhood}</p>
                           ) : null }
+                          <hr/>
                           <p>{selectedPost.content}</p>
                         </div>
                       </div>

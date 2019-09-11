@@ -29,6 +29,18 @@
   /* background-repeat: no-repeat; */
 }
 
+/* --- Login Page --- */
+
+.welcome-title {
+  padding-top: 7%;
+  font-size: 50px;
+  color: #F9C80E;
+}
+
+.subtitle-text {
+  color: #585858;
+}
+
 .city-background-login{
   background-image: url('images/skyline-drawing.png') !important;
   padding: 0px;
@@ -38,7 +50,6 @@
   margin-top: 25%;
 }
 
-/* --- Login Page --- */
 .form-title {
   color: #F9C80E;
 }
@@ -57,30 +68,20 @@
   padding-top: 3%
 }
 
-.welcome-title {
-  padding-top: 7%;
-  font-size: 50px;
-  color: #F9C80E;
-}
-
-.subtitle-text {
-  color: #585858;
-}
-
 /* --- NavBar --- */
-.navBar-styling {
+.navbar-styling {
   background-color: #1BE7FF;
   box-shadow: 0 1px 2px 0 rgba(36, 50, 66, .15);
-  color: #383838;
+  color: #383838 !important;
 }
 
 .nav-links {
   font-size: 18px;
 }
 
-.navLogo {
+.nav-logo {
   font-size: 50px;
-  color: #383838;
+  color: #383838 !important;
 }
 
 .nav-logout {
@@ -88,24 +89,24 @@
 }
 
 /* --- Homepage --- */
-.welcome-title-with-name {
-  color: #F9C80E;
-  margin-bottom: 0.5em;
-  margin-top: 0.5em !important;
-}
-
-.post-form-outer-container {
-  /* margin-top: 3em; */
-}
-
-.homepage-left-box-container {
+.homepage-left-box-outer-container {
   float: left;
   width: 30%;
   padding: 10px;
 }
 
+.welcome-title-with-name {
+  color: #F9C80E;
+  margin-top: 0.5em !important;
+  margin-bottom: 5%;
+}
+
 .category-form-container {
-  margin-bottom: 0.5em;
+  margin-bottom: 5%;
+}
+
+.post-form-container {
+  /* margin-top: 3em; */
 }
 
 /* --- Homepage - MAP --- */
@@ -125,15 +126,22 @@
   width: 20px;
 }
 
-.popup-card {
+.mapboxgl-popup-content {
+  box-shadow: 0 0 4px 0 rgba(36, 50, 66, .15) !important;
+  border-radius: 5px !important;
+}
+
+.popup-internal-card {
   width: 250px;
+  height: 400px;
   border-radius: 10px;
+  overflow-y: auto;
 }
 
 .popup-card-img {
-  width: 95%;
+  width: 90%;
   border-radius: 5px;
-  height: 250px;
+  /* height: 250px; */
   place-self: center;
 }
 
@@ -152,7 +160,7 @@
 }
 
 .delete-btn {
-  font-size: 2em;
+  font-size: 1.5em;
   color: #999;
   border-radius:1em;
   border: none;

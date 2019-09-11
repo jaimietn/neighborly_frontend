@@ -16,7 +16,7 @@ class Homepage extends Component {
     // console.log("homepage props", this.props)
     return (
       <>
-        <div className="homepage-left-box-container">
+        <div className="homepage-left-box-outer-container">
           <h1 className="welcome-title-with-name"> Hey there, {this.props.username}! 👋 </h1>
           <CategoryForm />
           <PostForm

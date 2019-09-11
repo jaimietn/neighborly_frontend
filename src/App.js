@@ -35,15 +35,15 @@ class App extends Component {
       })
       .then(resp => resp.json())
       .then(newUser => {
-        console.log(newUser)
+        // console.log(newUser)
         if (!newUser.err) {
-          console.log('NewUser Data', newUser)
+          // console.log('NewUser Data', newUser)
           localStorage.setItem('neighborly-user-token', newUser.token)
           this.setState({ user: newUser.user})
           this.props.history.push('/neighborly')
         }
         else {
-          console.log('dfbwdfb')
+          // console.log('SORRY :(')
           alert("Username already taken!")
         }
       })
@@ -51,7 +51,7 @@ class App extends Component {
 
 //Login existing user
     login = (user) => {
-      console.log(user)
+      // console.log(user)
       fetch(`${BASE_URL}/login`,
         {
           method: "POST",
@@ -66,13 +66,13 @@ class App extends Component {
         .then(resp => resp.json())
         .then(data => {
           if (!data.err) {
-            console.log('Login response Data', data);
+            // console.log('Login response Data', data);
             localStorage.setItem('neighborly-user-token', data.token);
-            console.log(data)
+            // console.log(data)
             this.setState({ user: data.user });
             this.props.history.push('/neighborly');
           } else {
-            console.log('dfbwdfb')
+            // console.log('LOGIN DENIED LOL')
             alert("Invalid username or password")
           }
         })
