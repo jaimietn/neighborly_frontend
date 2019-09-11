@@ -57,20 +57,17 @@ class Profile extends Component {
     ))
     }
     return (
-      <div>
+      <>
         <div>
-          <br></br>
-          <h2 className="form-title"> Hey, {this.props.username}! Here are all of your current posts. </h2>
+          <h2 className="form-title-profile"> Hey, {this.props.username}! Here are all of your current posts. </h2>
           <br></br>
         </div>
         <div>
-          <Card.Group itemsPerRow={4}>
-            {response}
-          </Card.Group>
-          <br></br>
+            <Card.Group itemsPerRow={4}>
+              {response}
+            </Card.Group>
         </div>
-        <div className="city-background"></div>
-      </div>
+      </>
     )
   }
 }

@@ -13,11 +13,11 @@ class MainNavbar extends React.Component {
     return (
       <Navbar expand="lg" className="navbar-styling">
         <Navbar.Brand href="/neighborly" className="nav-logo">Neighborly</Navbar.Brand>
-        <Nav className="nav-links">
-          <Nav.Link href="/aboutus">About Us</Nav.Link>
-          <Nav.Link href="/profile">Profile</Nav.Link>
-          <Nav.Link href="/messages">Messages</Nav.Link>
-          <Nav.Link onClick={this.logout} name="logout" className="nav-logout">Log Out</Nav.Link>
+        <Nav>
+          <Nav.Link href="/profile" className="nav-link">Profile</Nav.Link>
+          <Nav.Link href="/messages" className="nav-link">Messages</Nav.Link>
+          <Nav.Link href="/aboutus" className="nav-link">About Us</Nav.Link>
+          <Nav.Link onClick={this.logout} name="logout" className="nav-logout" className="nav-link">Log Out</Nav.Link>
         </Nav>
       </Navbar>
     )
