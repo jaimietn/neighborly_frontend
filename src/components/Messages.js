@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { getAllMessages, getSinglePost, getSingleMessage } from '../actions.js'
 import { Card } from 'semantic-ui-react'
 import MessageForm from './MessageForm'
-const MESSAGES_URL = "http://localhost:3000/api/v1/messages"
+const MESSAGES_URL = `${process.env.REACT_APP_BACKEND_URL}/api/v1/messages`
 
 class Messages extends Component {
 

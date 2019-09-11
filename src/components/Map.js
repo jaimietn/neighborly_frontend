@@ -5,11 +5,12 @@ import ReactMapGL, { Marker, Popup } from 'react-map-gl'
 import 'mapbox-gl/dist/mapbox-gl.css'
 import { getSinglePost } from '../actions.js'
 
-const REACT_APP_NEIGHBORLY_TOKEN="pk.eyJ1IjoiamFpbWlldG4iLCJhIjoiY2p6dmliN2NqMDB0dzNubXJ5M3NsdTZieCJ9.KOQr6GZBT81gTk57JEZCuA"
+// const REACT_APP_NEIGHBORLY_TOKEN="pk.eyJ1IjoiamFpbWlldG4iLCJhIjoiY2p6dmliN2NqMDB0dzNubXJ5M3NsdTZieCJ9.KOQr6GZBT81gTk57JEZCuA"
 
 function Map(props) {
 
     let allPostsCopy = props.allPosts
+    // console.log(allPostsCopy)
 
     function filterPosts() {
       if (!props.selectedCategory.category) {
@@ -22,8 +23,6 @@ function Map(props) {
     }
 
     let filteredPostsCopy = filterPosts()
-
-    // console.log(allPostsCopy)
 
     const [viewport, setViewport] = useState({
         latitude: 40.737099,
@@ -39,7 +38,7 @@ function Map(props) {
         <div>
             <ReactMapGL
                 {...viewport}
-                mapboxApiAccessToken={REACT_APP_NEIGHBORLY_TOKEN}
+                mapboxApiAccessToken={process.env.REACT_APP_NEIGHBORLY_TOKEN}
                 mapStyle="mapbox://styles/mapbox/light-v10"
                 onViewportChange={viewport => {
                     setViewport(viewport)
@@ -145,7 +144,6 @@ function Map(props) {
                           <h3><strong>{selectedPost.title}</strong></h3>
                           <p><strong>Category: </strong> {selectedPost.category}</p>
                           <p><strong>{selectedPost.username}</strong> posted on <strong>{selectedPost.posted}</strong></p>
-                          {/*<p><strong>Expires: </strong> {selectedPost.expires}</p>*/}
                           {selectedPost.neighborhood !== null ? (
                             <p><strong>Neighborhood:
                             </strong> {selectedPost.neighborhood}</p>

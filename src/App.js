@@ -8,9 +8,9 @@ import Messages from './components/Messages'
 import Header from './components/Header'
 import AboutUs from './components/AboutUs'
 
-const BASE_URL = "http://localhost:3000/api/v1"
-const USERS_URL = "http://localhost:3000/api/v1/users"
-// const POSTS_URL = "http://localhost:3000/api/v1/posts"
+const BASE_URL = `${process.env.REACT_APP_BACKEND_URL}/api/v1`
+const USERS_URL = `${process.env.REACT_APP_BACKEND_URL}/api/v1/users`
+// const POSTS_URL = `${process.env.REACT_APP_BACKEND_URL}/api/v1/posts`
 
 class App extends Component {
   state = {
@@ -19,7 +19,6 @@ class App extends Component {
 
 //SignUp create new user
   createUser = (user) => {
-    // e.preventDefault()
     console.log(user)
     fetch(`${USERS_URL}`,
       {
@@ -104,16 +103,6 @@ class App extends Component {
         this.props.history.push('/')
       }
     }
-
-    // deletePost = (post) => {
-    //   fetch(`${POSTS_URL}/${post.id}`,  {
-    //     method: 'DELETE',
-    //     headers: {
-    //       'Content-Type': 'application/json',
-    //       'Accept': 'application/json'
-    //     }
-    //   })
-    // }
 
     render() {
       return (

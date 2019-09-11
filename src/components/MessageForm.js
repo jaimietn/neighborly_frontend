@@ -4,12 +4,12 @@ import { addNewMessage } from '../actions.js'
 import { connect } from 'react-redux'
 
 const  defaultState = {
-     title: '',
-     content: '',
-     sent: '',
-     post_id: '',
-     sender_id: '',
-     recipient_id: '',
+  title: '',
+  content: '',
+  sent: '',
+  post_id: '',
+  sender_id: '',
+  recipient_id: '',
 }
 
 class MessageForm extends Component {
@@ -56,21 +56,12 @@ class MessageForm extends Component {
 
           <Form className="message-form"
             onSubmit={this.handleSubmit}>
-            <p> Replying to: {this.props.selectedMessage.sender ? this.props.reply_status ?  this.props.selectedMessage.sender.username : this.props.selectedMessage.recipient.username : null} </p>
-            {/*(() => {
-              if (this.props.selectedPost.username === this.props.userName) {
-              return (
-                <p> Replying to: {this.props.senderUsername}
-                </p>
-              )
-            } else {
-              return (
-                <p> Replying to: {this.props.selectedPost.username}
-                </p>)}
-              })()*/}
-              {/*<p> Replying to: {this.props.selectedPost.username}
-                </p>*/}
-              <p> Re: {this.props.selectedMessage.title} </p>
+            <p>
+              Replying to: {this.props.selectedMessage.sender ? this.props.reply_status ?  this.props.selectedMessage.sender.username : this.props.selectedMessage.recipient.username : null}
+            </p>
+            <p>
+              Re: {this.props.selectedMessage.title}
+            </p>
               <Form.Field>
                   <Form.Input
                   placeholder="Write your message here."

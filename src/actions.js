@@ -1,8 +1,8 @@
-const MESSAGES_URL = "http://localhost:3000/api/v1/messages"
+const MESSAGES_URL = `${process.env.REACT_APP_BACKEND_URL}/api/v1/messages`
 
 function getAllPosts(){
   return function(dispatch){
-    fetch('http://localhost:3000/api/v1/posts', {
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/api/v1/posts`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -20,7 +20,7 @@ function getAllPosts(){
 
 function getSinglePost(dispatch, selectedPostId){
   console.log("selectedpostid", selectedPostId)
-    fetch(`http://localhost:3000/api/v1/posts/${selectedPostId}`, {
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/api/v1/posts/${selectedPostId}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -48,6 +48,24 @@ function getSinglePost(dispatch, selectedPostId){
         dispatch({type: "GET_SINGLE_MESSAGE",
         payload: newMessageObject})
       })
+}
+
+function getAllMessages(){
+  return function(dispatch){
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/api/v1/messages`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Accepts: 'application/json'
+      }
+    })
+      .then(resp => resp.json())
+      .then(messagesArray => {
+        console.log(dispatch)
+        dispatch({type: "GET_ALL_MESSAGES",
+        payload: messagesArray})
+      })
+  }
 }
 
 function getSingleMessage(dispatch, selectedMessageId) {
@@ -82,24 +100,6 @@ function addNewMessage(newMessage){
       dispatch({type: "ADD_NEW_MESSAGE",
       payload: newMessage})
     })
-  }
-}
-
-function getAllMessages(){
-  return function(dispatch){
-    fetch('http://localhost:3000/api/v1/messages', {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        Accepts: 'application/json'
-      }
-    })
-      .then(resp => resp.json())
-      .then(messagesArray => {
-        console.log(dispatch)
-        dispatch({type: "GET_ALL_MESSAGES",
-        payload: messagesArray})
-      })
   }
 }
 

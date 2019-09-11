@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Form } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 
-const POSTS_URL = "http://localhost:3000/api/v1/posts"
+const POSTS_URL = `${process.env.REACT_APP_BACKEND_URL}/api/v1/posts`
 
 const defaultState = {
   latitude: '',
@@ -33,7 +33,6 @@ class PostForm extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    // console.log("bert id", this.props.userId)
     // console.log("bert name", this.props.username)
 
     let userId = this.props.userId
