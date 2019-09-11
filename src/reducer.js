@@ -31,7 +31,7 @@ function selectedPostReducer(state=defaultState.selectedPost, action) {
 function longLatReducer(state=defaultState.longLat, action) {
   switch (action.type) {
     case "GET_LONG_LAT":
-      console.log(action.payload)
+      // console.log(action.payload)
       return action.payload
     case "CLEAR_LONG_LAT":
       return []
@@ -43,7 +43,7 @@ function longLatReducer(state=defaultState.longLat, action) {
 function selectedCategoryReducer(state=defaultState.selectedCategory, action) {
   switch (action.type) {
     case "RECORD_SELECTED_CATEGORY":
-    console.log("selected category", action.payload)
+    // console.log("selected category", action.payload)
     // const selectedCategory = action.payload
     return action.payload
     default:

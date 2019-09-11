@@ -28,7 +28,7 @@ function Map(props) {
         latitude: 40.737099,
         longitude: -73.942656,
         width: "100vw",
-        height: "610px",
+        height: "100vh",
         zoom: 11
     })
     const[selectedPost, setSelectedPost] = useState(null)
@@ -151,7 +151,9 @@ function Map(props) {
                           <p>{selectedPost.content}</p>
                         </div>
                       </div>
-                      <button onClick={(event) => {
+                      <button
+                          className="form-button"
+                          onClick={(event) => {
                               console.log("EVENT", event.target.id)
                           props.getSinglePost(event.target.id)
                           props.history.push('/messages')

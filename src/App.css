@@ -9,12 +9,14 @@
 .form-button {
   border-radius: 5px;
   background-color: white;
-  color: black;
+  color: #585858;
+  margin-top: 0.25em;
   /* border: 2px solid #008CBA; */
 }
+
 .form-button:hover {
   background-color: #e7e7e7;
-  color: white;
+  color: #585858;
 }
 
 .city-background{
@@ -66,32 +68,44 @@
 }
 
 /* --- NavBar --- */
-
 .navBar-styling {
   background-color: #1BE7FF;
   box-shadow: 0 1px 2px 0 rgba(36, 50, 66, .15);
   color: #383838;
 }
+
 .nav-links {
   font-size: 18px;
 }
+
 .navLogo {
   font-size: 50px;
   color: #383838;
 }
 
-.sticky {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  height: 7em;
+.nav-logout {
+  right: 1em !important;
 }
 
 /* --- Homepage --- */
-.post-form-container {
+.welcome-title-with-name {
+  color: #F9C80E;
+  margin-bottom: 0.5em;
+  margin-top: 0.5em !important;
+}
+
+.post-form-outer-container {
+  /* margin-top: 3em; */
+}
+
+.homepage-left-box-container {
   float: left;
   width: 30%;
   padding: 10px;
+}
+
+.category-form-container {
+  margin-bottom: 0.5em;
 }
 
 /* --- Homepage - MAP --- */
@@ -121,8 +135,6 @@
   border-radius: 5px;
   height: 250px;
   place-self: center;
-  /* position: absolute; */
-  /* padding-top: 1em; */
 }
 
 /* --- Profile --- */
@@ -131,9 +143,6 @@
   padding: 0 !important;
   vertical-align: top;
 }
-/* .profile-post-card{
-  padding: 3em;
-} */
 
 .post-card {
   padding: 1em !important;
@@ -143,13 +152,9 @@
 }
 
 .delete-btn {
-  /* max-width: 5em; */
   font-size: 2em;
-  /* background-color: red;*/
   color: #999;
-  /* border: 1px solid red; */
   border-radius:1em;
-  /* margin-top: 1.5em; */
   border: none;
   margin-left: 15%;
   padding: .2em;
@@ -174,10 +179,36 @@
 }
 
 /* --- Messages --- */
+.message-form-container {
+  padding: 1em !important;
+  border: none !important;
+  box-shadow: 0 0 4px 0 rgba(36, 50, 66, .15) !important;
+  margin-top: 1em;
+  margin-left: 2em;
+  margin-right: 2em;
+  margin-bottom: 2em;
+}
+
 .message-form {
   margin-left: 15%;
   margin-right: 15%;
   margin-bottom: 2em;
+}
+
+.message-card-inbox {
+  padding: 1em !important;
+  border: none !important;
+  box-shadow: 0 0 4px 0 rgba(36, 50, 66, .15) !important;
+  vertical-align: top;
+  margin-left: 2em !important;
+}
+
+.message-card-outbox {
+  padding: 1em !important;
+  border: none !important;
+  box-shadow: 0 0 4px 0 rgba(36, 50, 66, .15) !important;
+  vertical-align: top;
+  margin-right: 2em !important;
 }
 
 .messages-received-container {
@@ -210,9 +241,19 @@
   background-image: url('images/houses.jpg') !important;
   background-size: cover !important;
   margin: 0px;
-  /* margin-top: 5em; */
   padding-bottom: 5em;
   padding: 0px;
   min-height: 100vh;
   max-height: 100vh;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 7em;
+}
+
+.welcome-title-and-filter {
+  align-content: center;
 }

@@ -11,7 +11,7 @@ function getAllPosts(){
     })
       .then(resp => resp.json())
       .then(postsArray => {
-        console.log(dispatch)
+        // console.log(dispatch)
         dispatch({type: "GET_ALL_POSTS",
         payload: postsArray})
       })
@@ -41,8 +41,8 @@ function getSinglePost(dispatch, selectedPostId){
             username: selectedPost.username
           }
         }
-        console.log("get single post", dispatch)
-        console.log(selectedPost)
+        // console.log("get single post", dispatch)
+        // console.log(selectedPost)
         dispatch({type: "GET_SINGLE_POST",
         payload: selectedPost})
         dispatch({type: "GET_SINGLE_MESSAGE",
@@ -61,7 +61,7 @@ function getAllMessages(){
     })
       .then(resp => resp.json())
       .then(messagesArray => {
-        console.log(dispatch)
+        // console.log(dispatch)
         dispatch({type: "GET_ALL_MESSAGES",
         payload: messagesArray})
       })
@@ -96,11 +96,11 @@ function addNewMessage(newMessage){
     })
     .then(resp => resp.json())
     .then(newMessage => {
-      console.log(newMessage)
+      // console.log(newMessage)
       dispatch({type: "ADD_NEW_MESSAGE",
       payload: newMessage})
     })
   }
 }
 
-export {getAllPosts, getSinglePost, getAllMessages, addNewMessage, getSingleMessage}
+export { getAllPosts, getSinglePost, getAllMessages, addNewMessage, getSingleMessage }

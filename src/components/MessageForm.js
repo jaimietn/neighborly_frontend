@@ -50,9 +50,8 @@ class MessageForm extends Component {
     // const senderUser = this.props.selectedMessage.sender
     // console.log(senderUser)
     return(
-        <div>
+        <div className="message-form-container">
           <h2 className="form-title">Send a Message</h2>
-          <br />
 
           <Form className="message-form"
             onSubmit={this.handleSubmit}>

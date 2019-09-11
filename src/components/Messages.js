@@ -42,7 +42,7 @@ class Messages extends Component {
     } else {
       receivedMessages = userReceivedMessages.map(message => (
 
-        <Card key={message.id}>
+        <Card className="message-card-inbox" key={message.id}>
           <h2> Re: {message.title} </h2>
           <p> {message.content} </p>
           <p> Sent from {message.sender.username} on {message.sent} </p>
@@ -61,7 +61,7 @@ class Messages extends Component {
       sentMessages = "You haven't sent any messages!"
     } else {
       sentMessages = userSentMessages.map(message => (
-        <Card key={message.id}>
+        <Card className="message-card-outbox" key={message.id}>
           <h2> Re: {message.title} </h2>
           <p> {message.content} </p>
           <p> Sent to {message.recipient.username} on {message.sent} </p>

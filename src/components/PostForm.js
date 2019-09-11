@@ -83,9 +83,8 @@ class PostForm extends Component {
 
   render(){
     return(
-        <div>
+        <div className="post-form-outer-container">
           <h2 className="form-title">Leave a Note</h2>
-          <br />
           <h4 className="subtitle-text">
             Start by clicking on a location
           </h4>

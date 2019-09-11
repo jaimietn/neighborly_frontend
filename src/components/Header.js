@@ -7,7 +7,6 @@ class Header extends React.Component {
         return (
             <div>
                 <MainNavbar />
-                <br/>
             </div>
         )
     }

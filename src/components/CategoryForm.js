@@ -1,4 +1,7 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { Form } from 'semantic-ui-react'
+import { getAllPosts } from '../actions.js'
 
 class CategoryForm extends Component {
 
@@ -6,36 +9,67 @@ class CategoryForm extends Component {
     category: ''
   }
 
-  render(){
-    console.log("from form", this.state.category)
-    return(
-      <div>
-        <form onSubmit={this.props.handleSubmit}>
-          <label>
-            {"Filter this map area by category: "}
-            <select value={this.state.category} onChange={this.props.handleChange}>
-              <option value="animal_sightings"> Animal Sightings </option>
-              <option value="candid_camera"> Candid Camera </option>
-              <option value="free_stuff"> Free Stuff </option>
-              <option value="general_notes"> General Notes </option>
-              <option value="for_sale"> Items For Sale </option>
-              <option value="live_music"> Live Music </option>
-              <option value="lost_found_items"> Lost or Found Items </option>
-              <option value="lost_found_pet"> Lost or Found Pets </option>
-              <option value="missed_connections"> Missed Connections </option>
-              <option value="need_help"> Need Help </option>
-              <option value="neighborhood_events"> Neighborhood Events </option>
-              <option value="other"> Other </option>
-              <option value="protest_events"> Protest Events </option>
-              <option value="safety_concerns"> Safety Concerns </option>
-              <option value="thank_you_notes"> Thank You Notes </option>
-            </select>
-          </label>
-          <input className="button" type="submit" value="Submit" />
-        </form>
+  handleChange = (e) => {
+    console.log(e.target.value)
+    this.props.recordSelectedCategory(e)
+    this.setState({ category: e.target.value })
+  }
+
+  render() {
+    // console.log(this.props.allPosts)
+    // console.log("homepage props", this.props)
+    return (
+      <div className="category-form-container">
+          <Form>
+            {/* removed from form: onSubmit={this.handleSubmit}*/}
+            <label className="subtitle-text">
+              {"Filter this map area by category: "}
+              <select value={this.state.category} onChange={((e) => this.handleChange(e))}>
+                <option value='' disabled> Select a category </option>
+                <option value="Show All"> Show All </option>
+                <option value="Animal Sightings"> Animal Sightings </option>
+                <option value="For Sale"> For Sale </option>
+                <option value="Free Stuff"> Free Stuff </option>
+                <option value="Funny"> Funny </option>
+                <option value="General"> General </option>
+                <option value="Gigs"> Gigs </option>
+                <option value="Lost or Found Items"> Lost or Found Items </option>
+                <option value="Lost or Found Pets"> Lost or Found Pets </option>
+                <option value="Missed Connections"> Missed Connections </option>
+                <option value="Need Help"> Need Help </option>
+                <option value="Neighborhood Events"> Neighborhood Events </option>
+                <option value="Other"> Other </option>
+                <option value="Protest Events"> Protest Events </option>
+                <option value="Spotted"> Spotted </option>
+                <option value="Thank You Notes"> Thank You Notes </option>
+              </select>
+            </label>
+            {  /* <input className="button" type="submit" value="Submit" />*/}
+          </Form>
       </div>
     )
   }
 }
 
-export default CategoryForm
+function mdp(dispatch) {
+  return {
+    getAllPosts: () => {
+      dispatch(getAllPosts())},
+
+    recordSelectedCategory: (e) => {
+      dispatch({
+      type: "RECORD_SELECTED_CATEGORY",
+      payload: ({
+        category: e.target.value
+      })})
+    }
+  }
+}
+
+function msp(state) {
+  return {
+    allPosts: state.allPosts
+  }
+}
+
+export default connect(msp, mdp)(CategoryForm)

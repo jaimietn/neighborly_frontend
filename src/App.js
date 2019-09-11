@@ -49,6 +49,7 @@ class App extends Component {
       })
     }
 
+//Login existing user
     login = (user) => {
       console.log(user)
       fetch(`${BASE_URL}/login`,
