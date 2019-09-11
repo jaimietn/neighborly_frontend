@@ -48,6 +48,8 @@ function Map(props) {
                 {filteredPostsCopy.map(post => (
                     <Marker
                         key={post.id}
+                        offsetLeft={-10}
+                        offsetTop={-10}
                         latitude={Number(post.latitude)}
                         longitude={Number(post.longitude)}>
                             <button
@@ -158,6 +160,15 @@ function Map(props) {
                       }} id={selectedPost.id}> Reply to Post </button>
                     </Popup>
                 ) : null}
+                {props.longLat.length > 0 ?
+                  <Marker
+                    latitude={props.longLat[1]}
+                    longitude={props.longLat[0]}
+                    offsetLeft={-10}
+                    offsetTop={-10}>
+                    <span role="img" aria-label="pencil"> 📍 </span>
+                  </Marker>
+                  : null}
             </ReactMapGL>
         </div>
     )
@@ -175,6 +186,7 @@ function mdp(dispatch) {
 
 function msp(state) {
   return {
+    longLat: state.longLat,
     allPosts: state.allPosts,
     selectedCategory: state.selectedCategory,
     selectedPostId: state.selectedPostId,

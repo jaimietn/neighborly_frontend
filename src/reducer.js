@@ -28,21 +28,13 @@ function selectedPostReducer(state=defaultState.selectedPost, action) {
   }
 }
 
-// function selectedPostIdReducer(state=defaultState.selectedPostId, action) {
-//   switch (action.type) {
-//     case "GET_SELECTED_POST_ID":
-//       console.log("GET_SELECTED_POST_ID payload", action.payload)
-//       return action.payload
-//     default:
-//       return state
-//   }
-// }
-
 function longLatReducer(state=defaultState.longLat, action) {
   switch (action.type) {
     case "GET_LONG_LAT":
       console.log(action.payload)
       return action.payload
+    case "CLEAR_LONG_LAT":
+      return []
     default:
       return state
   }

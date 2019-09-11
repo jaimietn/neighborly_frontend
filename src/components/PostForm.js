@@ -63,6 +63,7 @@ class PostForm extends Component {
     }
 
     this.props.addNewPost(newPost)
+    this.props.removeLongLat()
 
     // console.log(user)
     fetch(`${POSTS_URL}`,{
@@ -91,12 +92,6 @@ class PostForm extends Component {
           </h4>
           <Form
             onSubmit={this.handleSubmit}>
-              <p>
-                  Latitude: {this.props.longLat[1]}
-              </p>
-              <p>
-                  Longitude: {this.props.longLat[0]}
-              </p>
               <Form.Field>
                   <Form.Input
                   placeholder="Enter title"
@@ -154,8 +149,11 @@ class PostForm extends Component {
 function mdp(dispatch) {
   return {
     addNewPost: (newPost) => dispatch({
-    type: "ADD_NEW_POST",
-    payload: newPost})
+      type: "ADD_NEW_POST",
+      payload: newPost}),
+    removeLongLat: () => dispatch({
+      type: "CLEAR_LONG_LAT"
+    })
   }
 }
 
