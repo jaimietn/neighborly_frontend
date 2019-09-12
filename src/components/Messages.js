@@ -85,13 +85,13 @@ class Messages extends Component {
         <h2 className="form-title"> Hey, {this.props.username}! Here are all of your current messages. </h2>
         <br></br>
           <div className="messages-received-container">
-          <h3> Your Inbox: </h3>
+          <h3 className="form-title-subtitle"> Your Inbox: </h3>
           <Card.Group itemsPerRow={1}>
             {receivedMessages}
           </Card.Group>
         </div>
         <div className="messages-sent-container">
-          <h3> Your Sent Messages: </h3>
+          <h3 className="messages-received-container"> Your Sent Messages: </h3>
           <Card.Group itemsPerRow={1}>
             {sentMessages}
           </Card.Group>

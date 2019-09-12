@@ -14,7 +14,8 @@
 .App {
   text-align: center;
   margin: 0px;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Roboto', sans-serif;
+  /* font-family: 'Open Sans', sans-serif; */
   color: #585858;
 }
 
@@ -52,6 +53,7 @@
   background-size: cover;
   width: 100vw;
   height: 100vh;
+  background-attachment: fixed;
 }
 
 .yellow-blue-login {
@@ -75,6 +77,12 @@
 }
 
 .form-title {
+  color: #05a5bd;
+  padding-top: 5%;
+  /* margin-top: 1em !important; */
+}
+
+.form-title-subtitle {
   color: #05a5bd;
   padding-top: 5%;
   /* margin-top: 1em !important; */
@@ -122,20 +130,21 @@
 
 /* --- Homepage --- */
 .homepage-left-box-outer-container {
-  /* background-color: #ffde59; */
   float: left;
   width: 30%;
   padding: 10px;
+  background-color: #ffde59; /* WHAT SHOULD THIS BE?? */
+  height: 100vh;
 }
 
 .welcome-title-with-name {
   color: #05a5bd;
   margin-top: 0.5em !important;
-  margin-bottom: 13%;
+  margin-bottom: 7%;
 }
 
 .category-form-container {
-  margin-bottom: 13%;
+  margin-bottom: 10%;
 }
 
 .post-form-container {
@@ -175,6 +184,7 @@
   width: 90%;
   border-radius: 5px;
   place-self: center;
+  opacity: 1;
   /* height: 250px; */
 }
 
@@ -197,6 +207,11 @@
   border: none !important;
   box-shadow: 0 0 4px 0 rgba(36, 50, 66, .15) !important;
   vertical-align: top;
+  opacity: 0.9;
+}
+
+.post-card img {
+  opacity: 1;
 }
 
 .delete-btn {
@@ -251,6 +266,7 @@
   box-shadow: 0 0 4px 0 rgba(36, 50, 66, .15) !important;
   vertical-align: top;
   margin-left: 2em !important;
+  opacity: 0.9;
 }
 
 .message-card-outbox {
@@ -259,6 +275,7 @@
   box-shadow: 0 0 4px 0 rgba(36, 50, 66, .15) !important;
   vertical-align: top;
   margin-right: 2em !important;
+  opacity: 0.9;
 }
 
 .messages-received-container {
