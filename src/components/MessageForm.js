@@ -49,7 +49,8 @@ class MessageForm extends Component {
     // console.log(this.props.selectedMessage)
     // const senderUser = this.props.selectedMessage.sender
     // console.log(senderUser)
-    return(
+    return (
+      this.props.selectedPost.id || this.props.selectedMessage.id ? (
         <div className="message-form-container">
           <h2 className="form-title">Send a Message</h2>
 
@@ -71,6 +72,7 @@ class MessageForm extends Component {
             <Form.Button> Submit </Form.Button>
           </Form>
         </div>
+      ) : null
     )
   }
 }

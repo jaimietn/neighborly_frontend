@@ -77,12 +77,12 @@ class Messages extends Component {
     }
 
     return (
-      <div>
+      <div className="yellow-stripes-corners-background">
         <MessageForm
           reply_status={this.state.reply_status}
           userId={this.props.userId}
           username={this.props.userName}/>
-        <h2 className="form-title"> Hey,  {this.props.username}! Here are all of your current messages. </h2>
+        <h2 className="form-title"> Hey, {this.props.username}! Here are all of your current messages. </h2>
         <br></br>
           <div className="messages-received-container">
           <h3> Your Inbox: </h3>

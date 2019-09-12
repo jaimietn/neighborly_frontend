@@ -57,7 +57,7 @@ class Profile extends Component {
     ))
     }
     return (
-      <>
+      <div className="yellow-stripes-corners-background">
         <div>
           <h2 className="form-title-profile"> Hey, {this.props.username}! Here are all of your current posts. </h2>
           <br></br>
@@ -67,7 +67,7 @@ class Profile extends Component {
               {response}
             </Card.Group>
         </div>
-      </>
+      </div>
     )
   }
 }

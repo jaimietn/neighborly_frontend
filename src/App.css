@@ -2,6 +2,8 @@
 /*  color: #1867be; dark blue */
 /*  color: #ffe4de; pink */
 
+/* color: #f6c8c9; cute pink */
+
 /*  color: #ff7729; orange */
 /*  color: #85c0d2; light sky blue */
 
@@ -21,7 +23,6 @@
   background-color: white;
   color: #585858;
   margin-top: 0.25em;
-  /* border: 2px solid #008CBA; */
 }
 
 .form-button:hover {
@@ -37,8 +38,15 @@
   height: 100vh;
 }
 
-/* --- Login Page --- */
+.yellow-stripes-corners-background {
+  background-image: url('images/yellow-stripes-corners.png');
+  background-position: center;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+}
 
+/* --- Login Page --- */
 .welcome-title {
   font-family: 'Shrikhand', cursive;
   padding-top: 12%;
@@ -52,6 +60,8 @@
 
 .form-title {
   color: #05a5bd;
+  padding-top: 5%;
+  /* margin-top: 1em !important; */
 }
 
 .login-card{
@@ -82,16 +92,21 @@
 
 .nav-logo {
   font-size: 50px;
+  margin-left: 1%;
   font-family: 'Shrikhand', cursive;
   color: #05a5bd !important;
 }
 
 .nav-logout {
+  background-color: #05a5bd;
+  border: none;
+  margin-right: 2em;
 /*  ALIGN RIGHT */
 }
 
 /* --- Homepage --- */
 .homepage-left-box-outer-container {
+  /* background-color: #ffde59; */
   float: left;
   width: 30%;
   padding: 10px;
@@ -143,16 +158,16 @@
 .popup-card-img {
   width: 90%;
   border-radius: 5px;
-  /* height: 250px; */
   place-self: center;
+  /* height: 250px; */
 }
 
 /* --- Profile --- */
 .form-title-profile {
   color: #05a5bd;
-  margin-top: 1.5em !important;
-  /* color: #ED6A5A; */
-  /* color: #F9C80E; */
+  padding-top: 5%;
+  /* padding-top: 5%; */
+  /* margin-top: 1.5em !important; */
 }
 
 .ui.cards {
@@ -200,10 +215,12 @@
   padding: 1em !important;
   border: none !important;
   box-shadow: 0 0 4px 0 rgba(36, 50, 66, .15) !important;
-  margin-top: 1em;
-  margin-left: 2em;
-  margin-right: 2em;
+  /* margin-top: 1em; */
+  padding-top: 5%;
+  margin-left: 20em;
+  margin-right: 20em;
   margin-bottom: 2em;
+  border-radius: 25px;
 }
 
 .message-form {
@@ -241,7 +258,7 @@
 /* --- About Us --- */
 .about-us-text-container {
   position: absolute;
-  top: 300px;
+  top: 35%;
 }
 
 .about-text {

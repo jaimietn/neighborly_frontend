@@ -1,6 +1,6 @@
 import React from 'react';
-import { Navbar, Nav } from 'react-bootstrap';
-import { withRouter } from 'react-router-dom';
+import { Navbar, Nav, Form, Button } from 'react-bootstrap'
+import { withRouter } from 'react-router-dom'
 
 class MainNavbar extends React.Component {
 
@@ -11,14 +11,16 @@ class MainNavbar extends React.Component {
 
   render() {
     return (
-      <Navbar expand="lg" className="navbar-styling">
+      <Navbar className="navbar-styling">
         <Navbar.Brand href="/neighborly" className="nav-logo">Neighborly</Navbar.Brand>
-        <Nav>
+        <Nav className="mr-auto">
           <Nav.Link href="/profile" className="nav-link">Profile</Nav.Link>
           <Nav.Link href="/messages" className="nav-link">Messages</Nav.Link>
           <Nav.Link href="/aboutus" className="nav-link">About Us</Nav.Link>
-          <Nav.Link onClick={this.logout} name="logout" className="nav-logout" className="nav-link">Log Out</Nav.Link>
         </Nav>
+          <Form inline>
+            <Button onClick={this.logout} className="nav-logout"> Logout </Button>
+          </Form>
       </Navbar>
     )
   }
