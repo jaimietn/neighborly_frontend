@@ -3,7 +3,7 @@ import React from 'react'
 
 const AboutUs=()=>{
     return(
-      <div className="yellow-blue-corners-background">
+      <div className="yellow-blue-no-white">
         <div className="about-us-text-container">
           <h2 className="form-title"> About Us </h2>
           <br></br>

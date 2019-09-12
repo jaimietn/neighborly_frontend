@@ -7,7 +7,7 @@ class Welcome extends Component {
 
     render() {
       return (
-        <div className="yellow-blue-corners-background">
+        <div className="yellow-blue-login">
           <h1 className="welcome-title">
             Welcome to Neighborly
           </h1>

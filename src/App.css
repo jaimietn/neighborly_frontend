@@ -38,8 +38,24 @@
   height: 100vh;
 }
 
+.yellow-blue-no-white {
+  background-image: url('images/yellow-blue-no-white.png');
+  background-position: center;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+}
+
 .yellow-stripes-corners-background {
   background-image: url('images/yellow-stripes-corners.png');
+  background-position: center;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+}
+
+.yellow-blue-login {
+  background-image: url('images/yellow-blue-login.png');
   background-position: center;
   background-size: cover;
   width: 100vw;
