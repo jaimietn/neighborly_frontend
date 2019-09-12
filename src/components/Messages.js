@@ -82,16 +82,15 @@ class Messages extends Component {
           reply_status={this.state.reply_status}
           userId={this.props.userId}
           username={this.props.userName}/>
-        <h2 className="form-title"> Hey, {this.props.username}! Here are all of your current messages. </h2>
-        <br></br>
+        <h2 className="form-title-messages"> Hey, {this.props.username}! Here are your current messages. </h2>
           <div className="messages-received-container">
-          <h3 className="form-title-subtitle"> Your Inbox: </h3>
+          <h3 className="form-title-subtitle-messages"> Inbox: </h3>
           <Card.Group itemsPerRow={1}>
             {receivedMessages}
           </Card.Group>
         </div>
         <div className="messages-sent-container">
-          <h3 className="messages-received-container"> Your Sent Messages: </h3>
+          <h3 className="form-title-subtitle-messages"> Outbox: </h3>
           <Card.Group itemsPerRow={1}>
             {sentMessages}
           </Card.Group>

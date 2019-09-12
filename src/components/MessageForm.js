@@ -52,8 +52,7 @@ class MessageForm extends Component {
     return (
       this.props.selectedPost.id || this.props.selectedMessage.id ? (
         <div className="message-form-container">
-          <h2 className="form-title">Send a Message</h2>
-
+          <h2 className="form-title-message-form">Send a Message</h2>
           <Form className="message-form"
             onSubmit={this.handleSubmit}>
             <p>

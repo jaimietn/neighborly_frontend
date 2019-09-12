@@ -15,8 +15,8 @@
   text-align: center;
   margin: 0px;
   font-family: 'Roboto', sans-serif;
-  /* font-family: 'Open Sans', sans-serif; */
   color: #585858;
+  margin-top: 12vh;
 }
 
 .form-button {
@@ -54,6 +54,7 @@
   width: 100vw;
   height: 100vh;
   background-attachment: fixed;
+  padding-top: 2vh;
 }
 
 .yellow-blue-login {
@@ -70,6 +71,7 @@
   padding-top: 12%;
   font-size: 60px;
   color: #05a5bd;
+  margin-top: -12vh !important;
 }
 
 .subtitle-text {
@@ -105,8 +107,17 @@
 /* --- NavBar --- */
 .navbar-styling {
   background-color: white;
-  box-shadow: 0 1px 2px 0 rgba(36, 50, 66, .15);
+  box-shadow: 0 1px 2px 0 #A8A8A8;
   color: #05a5bd !important;
+  height: 12vh;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 12vh;
+  z-index: 10;
 }
 
 .nav-link {
@@ -191,7 +202,9 @@
 /* --- Profile --- */
 .form-title-profile {
   color: #05a5bd;
-  padding-top: 5%;
+  font-weight: bold;
+  padding-top: 2%;
+  font-size: 40px;
   /* padding-top: 5%; */
   /* margin-top: 1.5em !important; */
 }
@@ -205,7 +218,7 @@
 .post-card {
   padding: 1em !important;
   border: none !important;
-  box-shadow: 0 0 4px 0 rgba(36, 50, 66, .15) !important;
+  box-shadow: 0 0 4px 0 #989898 !important;
   vertical-align: top;
   opacity: 0.9;
 }
@@ -245,13 +258,31 @@
 .message-form-container {
   padding: 1em !important;
   border: none !important;
-  box-shadow: 0 0 4px 0 rgba(36, 50, 66, .15) !important;
-  /* margin-top: 1em; */
-  padding-top: 5%;
+  box-shadow: 0 0 4px 0 #989898 !important;
   margin-left: 20em;
   margin-right: 20em;
-  margin-bottom: 2em;
-  border-radius: 25px;
+  border-radius: 10px;
+}
+.form-title-message-form {
+  color: #05a5bd;
+  padding-top: 2%;
+  /* margin-top: 1em !important; */
+}
+
+.form-title-messages {
+  color: #05a5bd;
+  font-weight: bold;
+  padding-top: 3%;
+  font-size: 40px;
+  /* margin-top: 1em !important; */
+}
+
+.form-title-subtitle-messages {
+  color: #05a5bd;
+  font-size: 30px;
+  padding-top: 1em;
+  margin-bottom: 1em;
+  /* margin-top: 1em !important; */
 }
 
 .message-form {
@@ -263,7 +294,7 @@
 .message-card-inbox {
   padding: 1em !important;
   border: none !important;
-  box-shadow: 0 0 4px 0 rgba(36, 50, 66, .15) !important;
+  box-shadow: 0 0 4px 0 #989898 !important;
   vertical-align: top;
   margin-left: 2em !important;
   opacity: 0.9;
@@ -272,7 +303,7 @@
 .message-card-outbox {
   padding: 1em !important;
   border: none !important;
-  box-shadow: 0 0 4px 0 rgba(36, 50, 66, .15) !important;
+  box-shadow: 0 0 4px 0 #989898 !important;
   vertical-align: top;
   margin-right: 2em !important;
   opacity: 0.9;
@@ -294,9 +325,18 @@
   top: 35%;
 }
 
+.about-us-title-text {
+  font-family: 'Shrikhand', cursive;
+  color: #05a5bd;
+  padding-top: 2%;
+  font-size: 40px;
+}
+
 .about-text {
   margin-left: 15%;
   margin-right: 15%;
+  color: #05a5bd;
+  font-size: 18px;
 }
 
 /* --- Not in Use --- */
@@ -311,13 +351,6 @@
   padding: 0px;
   min-height: 100vh;
   max-height: 100vh;
-} */
-
-/* .sticky {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  height: 7em;
 } */
 
 /* .welcome-title-and-filter {
