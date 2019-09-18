@@ -46,7 +46,8 @@ class MessageForm extends Component {
   }
 
   render(){
-    // console.log(this.props.selectedMessage)
+    // console.log(this.props)
+    //console.log(this.props.selectedMessage)
     // const senderUser = this.props.selectedMessage.sender
     // console.log(senderUser)
     return (
