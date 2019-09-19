@@ -28,7 +28,6 @@ class Profile extends Component {
     // console.log(this.props)
     // console.log("all posts", this.props.allPosts)
     const userPosts = this.props.allPosts.filter(post => post.user_id === this.props.userId)
-    // console.log("bert's posts", userPosts)
 
     let response
     if (userPosts.length === 0) {
