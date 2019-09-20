@@ -15,11 +15,11 @@ class Welcome extends Component {
             Leave a note, anywhere in the world.
           </h2>
           <div>
-              <LoginForm
+            <LoginForm
               login={this.props.login}/>
-              <SignUpForm
+            <SignUpForm
               createUser={this.props.createUser}/>
-            </div>
+          </div>
         </div>
       )
     }

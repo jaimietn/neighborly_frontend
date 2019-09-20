@@ -1,3 +1,5 @@
+/* --- GLOBAL --- */
+
 /* --- Theme Colors --- */
 /*  color: #1867be; dark blue */
 /*  color: #ffe4de; pink */
@@ -10,7 +12,6 @@
 /*  color: #ffde59; yellow */
 /*  color: #05a5bd; light aqua blue */
 
-/* --- Global --- */
 .App {
   text-align: center;
   margin: 0px;
