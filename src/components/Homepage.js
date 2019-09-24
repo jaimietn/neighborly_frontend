@@ -13,7 +13,6 @@ class Homepage extends Component {
 
   render() {
     // console.log(this.props.allPosts)
-    // console.log("homepage props", this.props)
     return (
       <>
         <div className="homepage-left-box-outer-container">
