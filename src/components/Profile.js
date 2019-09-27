@@ -25,7 +25,7 @@ class Profile extends Component {
   }
 
   render() {
-    // console.log(this.props)
+    console.lot(this.props)
     // console.log("all posts", this.props.allPosts)
     const userPosts = this.props.allPosts.filter(post => post.user_id === this.props.userId)
 

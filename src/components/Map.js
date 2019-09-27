@@ -32,7 +32,6 @@ function Map(props) {
         zoom: 11.25
     })
     const[selectedPost, setSelectedPost] = useState(null)
-
     // console.log("map props getallposts", props.getAllPosts)
     return(
         <div>
