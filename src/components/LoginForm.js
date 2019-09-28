@@ -9,7 +9,6 @@ class LoginForm extends Component {
   }
 
   handleChange = (event) => {
-    // console.log(this.state)
     this.setState({ [event.target.name]: event.target.value })
   }
 
@@ -41,8 +40,6 @@ class LoginForm extends Component {
       </div>
     )
   }
-
-
 }
 
 export default LoginForm
